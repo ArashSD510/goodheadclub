@@ -497,8 +497,8 @@ document.addEventListener('DOMContentLoaded',function(){
  // sticky bar
  var bar=document.querySelector('.sticky-atc');
  if(bar){bar.style.transition='none';var st=function(){var on=bar.classList.contains('show')&&!document.body.classList.contains('noscroll')&&getComputedStyle(bar).display!=='none';
-   g.to(bar,{yPercent:on?0:110,autoAlpha:on?1:0,duration:on?.6:.4,ease:on?X:'power2.in',overwrite:true})};
-  g.set(bar,{yPercent:110,autoAlpha:0});st();
+   g.to(bar,{y:0,yPercent:on?0:110,autoAlpha:on?1:0,duration:on?.6:.4,ease:on?X:'power2.in',overwrite:true})};
+  g.set(bar,{y:0,yPercent:110,autoAlpha:0});st();
   var mo=new MutationObserver(st);mo.observe(bar,{attributes:true,attributeFilter:['class']});mo.observe(document.body,{attributes:true,attributeFilter:['class']})}
  // hover micro
  if(matchMedia('(hover:hover)').matches)$('button:not(.flip):not(.modal-x),.nav a.cta').forEach(function(b){
