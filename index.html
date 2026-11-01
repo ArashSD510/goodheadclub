@@ -86,9 +86,34 @@ button.atc{display:block;width:100%;max-width:500px;height:60px}
 .modal-box{position:relative;background:var(--paper);border:1px solid var(--ink);width:100%;max-width:520px;padding:44px 40px 36px;box-shadow:8px 8px 0 var(--kraft)}
 .modal-box h2{font-size:2.4rem;margin:0 0 .3em}
 .modal-box p{color:var(--muted);margin:0 0 26px}
-.modal-x{position:absolute;top:10px;right:10px;width:40px;height:40px;padding:0;background:transparent;color:var(--ink);font-size:1.4rem;font-weight:400;letter-spacing:0}
+.modal-x{position:absolute;top:8px;right:8px;width:44px;height:44px;padding:0;background:transparent;color:var(--ink);font-size:1.4rem;font-weight:400;letter-spacing:0}
 button.modal-x:hover{background:var(--stone)}
 body.noscroll{overflow:hidden}
+.benefits{list-style:none;padding:0;margin:0 0 28px;max-width:500px}
+.benefits li{position:relative;padding:4px 0 4px 22px;font-size:1rem}
+.benefits li:before{content:"";position:absolute;left:2px;top:.95em;width:10px;height:1px;background:var(--rust)}
+.faq summary{min-height:44px;align-items:center}
+.sticky-atc{display:none}
+@media(max-width:900px){
+ .hero .packet-stage{order:-1}
+ body{padding-bottom:calc(81px + env(safe-area-inset-bottom))}
+ .sticky-atc{display:flex;align-items:center;gap:14px;position:fixed;left:0;right:0;bottom:0;z-index:15;background:var(--paper);border-top:1px solid var(--ink);padding:10px 20px calc(10px + env(safe-area-inset-bottom));transform:translateY(110%);transition:transform .25s ease;visibility:hidden}
+ .sticky-atc.show{transform:none;visibility:visible}
+ body.noscroll .sticky-atc{transform:translateY(110%);visibility:hidden}
+ .sticky-atc .s-name{flex:1;min-width:0;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ .sticky-atc button{height:60px;flex:0 0 auto;padding:0 22px}
+}
+@media(max-width:560px){
+ .bar{padding:7px 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.62rem}
+ .nav{padding-top:14px;padding-bottom:14px}.nav a.cta{display:inline-flex;align-items:center;min-height:44px;border:0;text-decoration:underline;text-underline-offset:4px}
+ section.hero{padding:0 0 56px}.hero .wrap{gap:28px}.hero .packet-stage{margin:0 -20px;aspect-ratio:1/1}
+ .flip{width:58%}
+ .eyebrow{margin-bottom:14px}.pdp-sub{margin-bottom:18px;font-size:1.35rem}.pdp-pack{margin-bottom:16px}.lead.sm{margin-bottom:18px}
+ .pdp-meta{margin-bottom:20px}.benefits{margin-bottom:22px}
+ .cols p,.uses p,.faq details p,.fine,.intro,footer{font-size:1rem}
+ .faq details{padding:12px 0}.faq summary{font-size:1.35rem;min-height:48px}
+}
+@media(prefers-reduced-motion:reduce){.sticky-atc{transition:none}}
 @media(max-width:560px){.modal{align-items:flex-end;padding:0}.modal-box{max-width:none;padding:40px 20px 28px;box-shadow:none;border-width:1px 0 0}}
 .packet{width:88%;max-width:480px;filter:drop-shadow(0 30px 28px rgba(40,30,15,.22))}
 /* sections */
@@ -171,7 +196,7 @@ footer .logo{color:var(--paper);font-size:.8rem}
 <div class="bar mono">Nº 01 Head Wipes · cedarwood / vetiver / petitgrain</div>
 <header class="top">
  <div class="nav">
-  <a class="logo" href="#" aria-label="Good Head Club home"><img src="wordmark.svg" alt="Good Head Club" style="height:22px;width:auto;display:block"></a>
+  <a class="logo" href="#" aria-label="Good Head Club home"><img src="wordmark.svg" alt="Good Head Club" width="173" height="22" style="height:22px;width:auto;display:block"></a>
   <a class="cta mono" href="#product">Shop Nº 01</a>
  </div>
 </header>
@@ -184,11 +209,16 @@ footer .logo{color:var(--paper);font-size:.8rem}
    <p class="pdp-sub">for bald &amp; shaved heads</p>
    <p class="price">$29</p>
    <p class="pdp-pack mono">30 wipes · one-month supply</p>
-   <p class="lead sm">A fresh head, anywhere. Take down the shine, clear off the sweat, and freshen up in ten seconds, no sink required.</p>
+   <p class="lead sm">A fresh head, anywhere. Less shine, less sweat, no sink required.</p>
    <dl class="pdp-meta mono">
     <div><dt>Scent</dt><dd>cedarwood / vetiver / petitgrain</dd></div>
     <div><dt>Rinse</dt><dd>None needed</dd></div>
    </dl>
+   <ul class="benefits">
+    <li>No rinse. Wipe and go in ten seconds</li>
+    <li>Natural cedarwood, vetiver &amp; petitgrain essential oils</li>
+    <li>30 wipes, one a day for a month</li>
+   </ul>
    <button type="button" class="atc" data-event="add_to_cart" aria-haspopup="dialog" aria-controls="soldout">Add to cart · $29</button>
   </div>
   <div class="packet-stage">
@@ -340,7 +370,7 @@ footer .logo{color:var(--paper);font-size:.8rem}
   <!-- EMAIL PROVIDER HOOKUP: same as the hero form above. -->
   <form class="signup" action="#" method="post" data-demo="true" novalidate>
    <label for="email2" class="sr">Email address</label>
-   <input id="email2" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+   <input id="email2" type="email" name="email" placeholder="you@example.com" autocomplete="email" inputmode="email" enterkeyhint="send" required>
    <button type="submit">Notify me</button>
   </form>
   <div class="thanks" role="status" aria-live="polite" tabindex="-1"><strong>You're on the list.</strong> We'll email you when it restocks.</div>
@@ -348,6 +378,10 @@ footer .logo{color:var(--paper);font-size:.8rem}
  </div>
 </section>
 </main>
+<div class="sticky-atc" aria-label="Add to cart">
+ <span class="s-name mono">Nº 01 · $29</span>
+ <button type="button" data-event="add_to_cart" aria-haspopup="dialog" aria-controls="soldout">Add to cart · $29</button>
+</div>
 <div class="modal" id="soldout" role="dialog" aria-modal="true" aria-labelledby="so-h" aria-describedby="so-d" hidden>
  <div class="modal-bg" data-close></div>
  <div class="modal-box">
@@ -358,7 +392,7 @@ footer .logo{color:var(--paper);font-size:.8rem}
   <div class="signup-block">
   <form class="signup" action="#" method="post" data-demo="true" novalidate>
    <label for="email3" class="sr">Email address</label>
-   <input id="email3" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+   <input id="email3" type="email" name="email" placeholder="you@example.com" autocomplete="email" inputmode="email" enterkeyhint="send" required>
    <button type="submit">Notify me</button>
   </form>
   <div class="thanks" role="status" aria-live="polite" tabindex="-1"><strong>You're on the list.</strong> We'll email you when it restocks.</div>
@@ -386,16 +420,24 @@ document.querySelectorAll('form.signup').forEach(function(f){
 });
 </script>
 <script>
-(function(){var m=document.getElementById('soldout'),o=document.querySelector('[data-event="add_to_cart"]'),last;if(!m||!o)return;
+(function(){var m=document.getElementById('soldout'),o=document.querySelectorAll('[data-event="add_to_cart"]'),last;if(!m||!o.length)return;
 function f(){return m.querySelectorAll('button,input,[href],[tabindex]:not([tabindex="-1"])')}
 function vis(){return Array.prototype.filter.call(f(),function(e){return e.offsetParent!==null})}
 function open(){last=document.activeElement;m.hidden=false;m.classList.add('open');document.body.classList.add('noscroll');var i=m.querySelector('input');(i&&i.offsetParent?i:vis()[0]).focus()}
 function close(){m.classList.remove('open');m.hidden=true;document.body.classList.remove('noscroll');if(last)last.focus()}
-o.addEventListener('click',open);
+o.forEach(function(x){x.addEventListener('click',open)});
 m.querySelectorAll('[data-close]').forEach(function(c){c.addEventListener('click',close)});
 document.addEventListener('keydown',function(e){if(!m.classList.contains('open'))return;if(e.key==='Escape'){close();return}
  if(e.key==='Tab'){var v=vis(),a=v[0],z=v[v.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}}});
-if(/[?&]modal\b/.test(location.search))open();})();
+if(/[?&]modal\b/.test(location.search))open();
+var bar=document.querySelector('.sticky-atc'),hb=document.querySelector('.hero .atc'),fin=document.getElementById('join');
+if(bar&&hb&&fin){var past=false,inFin=false;if(/[?&]sticky\b/.test(location.search))past=true;
+ function upd(){bar.classList.toggle('show',past&&!inFin)}
+ if('IntersectionObserver' in window){
+  new IntersectionObserver(function(e){var r=e[0];past=!r.isIntersecting||/[?&]sticky\b/.test(location.search);upd()}).observe(hb);
+  new IntersectionObserver(function(e){inFin=e[0].isIntersecting;upd()}).observe(fin);
+ }upd();}
+})();
 </script>
 <script>
 (function(){var b=document.querySelector('.flip');if(!b)return;var F='Good Head Club head wipes pouch. Showing front: typed paper label reading Head Wipes, for bald and shaved heads. Press to flip and see the back.',B='Good Head Club head wipes pouch. Showing back: tear notch, press-to-seal zip and the line Tear. Zip. Done. Press to flip to the front.';
