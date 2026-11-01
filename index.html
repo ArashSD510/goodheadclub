@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Good Head Club — Grooming for bald and shaved heads</title>
-<meta name="description" content="Good Head Club is a new grooming brand for bald and shaved heads. First up: bald head wipes. Join the list for launch news.">
+<meta name="description" content="Good Head Club is a new grooming brand for bald and shaved heads. First up: bald head wipes. Join the waitlist.">
 <link rel="canonical" href="https://goodheadclub.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://goodheadclub.com/">
 <meta property="og:title" content="Good Head Club — Grooming for bald and shaved heads">
-<meta property="og:description" content="Bald head wipes first. Shave soap, deodorant and scalp care next. Join the list.">
+<meta property="og:description" content="Bald head wipes for shine, sweat and freshening up on the go. Join the waitlist.">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#16201b">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -67,6 +67,11 @@ h2{font-size:clamp(2rem,4.5vw,3rem);max-width:20ch}
 .final form.signup,.final .thanks{margin:0 auto;text-align:left}
 footer{padding:48px 0;font-size:.9rem;color:var(--muted)}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.faq{max-width:760px;margin-top:32px}
+.faq details{background:#fff;border:1px solid var(--sand);border-radius:var(--r);padding:18px 24px;margin-bottom:12px}
+.faq summary{font-weight:700;cursor:pointer;font-size:1.05rem}
+.faq details p{margin:.6em 0 0;color:var(--muted)}
+.later{padding:0 0 56px;color:var(--muted);font-size:.95rem;text-align:center}.later strong{color:#8a6a3c}
 @media (max-width:760px){.hero{padding:40px 0 72px}.hero:after{width:320px;height:320px;right:-140px;top:-60px}section{padding:64px 0}.why .wrap{grid-template-columns:1fr;gap:24px}.final{margin:0 12px;max-width:none}form.signup{flex-wrap:wrap}form.signup button{flex:1 1 100%}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
@@ -76,15 +81,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <header class="top">
  <div class="nav">
   <a class="logo" href="#" aria-label="Good Head Club home"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#22302a"/><path d="M14 40a18 18 0 0 1 36 0" fill="none" stroke="#d9a25b" stroke-width="6" stroke-linecap="round"/><circle cx="32" cy="46" r="4" fill="#f4efe6"/></svg>Good Head Club</a>
-  <a class="cta" href="#join">Join the list</a>
+  <a class="cta" href="#join">Join the waitlist</a>
  </div>
 </header>
 <main id="main">
 <section class="hero" aria-labelledby="hero-h">
  <div class="wrap">
-  <span class="eyebrow">Grooming for bald &amp; shaved heads</span>
-  <h1 id="hero-h">Your head deserves <em>better</em> than hand soap.</h1>
-  <p class="lead">Good Head Club makes grooming built for the bare scalp. First up: bald head wipes. Get on the list and we'll tell you the day they drop.</p>
+  <span class="eyebrow">Bald head wipes · Coming soon</span>
+  <h1 id="hero-h">A fresh head, <em>anywhere.</em></h1>
+  <p class="lead">Wipes made for bald and shaved heads. Take down the shine, clear off the sweat, and freshen up in ten seconds, no sink required. We're making them now. Join the waitlist and you'll hear first.</p>
   <div class="signup-block">
   <!--
     EMAIL PROVIDER HOOKUP:
@@ -95,58 +100,79 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <form class="signup" action="#" method="post" data-demo="true" novalidate>
    <label for="email1" class="skip">Email address</label>
    <input id="email1" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
-   <button type="submit">Get launch updates</button>
+   <button type="submit">Join the waitlist</button>
   </form>
-  <div class="thanks" role="status" aria-live="polite" tabindex="-1"><strong>You're in the club.</strong> Thanks for signing up — we'll be in touch when the wipes are ready.</div>
-  <p class="fine">Launch news only. No spam, unsubscribe anytime.</p>
+  <div class="thanks" role="status" aria-live="polite" tabindex="-1"><strong>You're on the list.</strong> Thanks! We'll let you know when the wipes are ready.</div>
+  <p class="fine">Wipes news only. No spam, unsubscribe anytime.</p>
   </div>
  </div>
 </section>
 
-<section aria-labelledby="wipes-h">
+<section aria-labelledby="problem-h">
  <div class="wrap">
-  <span class="kicker">Product one</span>
-  <h2 id="wipes-h">Bald head wipes. Simple idea, overdue.</h2>
-  <p class="intro">A bald or shaved head is out in the world all day. These wipes are made to give it a quick refresh whenever you need one — no sink, no fuss.</p>
+  <span class="kicker">The problem</span>
+  <h2 id="problem-h">Your head is out in the world all day.</h2>
+  <p class="intro">No hair means nothing between your scalp and the sun, the gym, the subway, or the office lights. Most of us just deal with it using a paper towel, a sleeve, or a splash at the bathroom sink.</p>
   <div class="grid">
-   <div class="card"><div class="ico" aria-hidden="true">✦</div><h3>Midday refresh</h3><p>A quick wipe-down after the commute, the gym, or a long afternoon outside.</p></div>
-   <div class="card"><div class="ico" aria-hidden="true">◐</div><h3>Less shine</h3><p>Help take the edge off that end-of-day gleam before a meeting or a photo.</p></div>
-   <div class="card"><div class="ico" aria-hidden="true">↗</div><h3>Goes where you go</h3><p>Built to live in a bag, a desk drawer, or the glovebox.</p></div>
-   <div class="card"><div class="ico" aria-hidden="true">✓</div><h3>Made for the scalp</h3><p>Designed with bare heads in mind, not borrowed from the baby aisle.</p></div>
+   <div class="card"><div class="ico" aria-hidden="true">◐</div><h3>Shine</h3><p>That end-of-day gleam always shows up right before the meeting or the photo.</p></div>
+   <div class="card"><div class="ico" aria-hidden="true">≈</div><h3>Sweat</h3><p>After a workout, a hot commute, or a walk in the sun, it has nowhere to hide.</p></div>
+   <div class="card"><div class="ico" aria-hidden="true">☀</div><h3>Sunscreen &amp; oil buildup</h3><p>You're doing the right thing with SPF, and by afternoon your head feels greasy anyway.</p></div>
+   <div class="card"><div class="ico" aria-hidden="true">↗</div><h3>No sink nearby</h3><p>Freshening up on the go shouldn't mean finding a bathroom and a roll of paper towels.</p></div>
   </div>
  </div>
 </section>
 
-<section class="road" aria-labelledby="road-h">
+<section class="road" aria-labelledby="how-h">
  <div class="wrap">
-  <span class="kicker">What's coming</span>
-  <h2 id="road-h">Wipes are just the start.</h2>
-  <p class="intro">We're building a full lineup for the shaved-head routine, one product at a time.</p>
+  <span class="kicker">How they work</span>
+  <h2 id="how-h">Open. Wipe. Done.</h2>
   <ol class="steps">
-   <li class="now"><span class="tag">01 · First</span><h3>Bald head wipes</h3><p>The everyday refresh.</p></li>
-   <li><span class="tag">02 · Next</span><h3>Tallow shave soap</h3><p>For head, face and body.</p></li>
-   <li><span class="tag">03 · Then</span><h3>Natural deodorant</h3><p>Because the club covers more than heads.</p></li>
-   <li><span class="tag">04 · Later</span><h3>Scalp sunscreen &amp; balm</h3><p>For the most sun-facing real estate you own.</p></li>
+   <li class="now"><span class="tag">01</span><h3>Pull one out</h3><p>Individually wrapped, or close to it. We're still deciding on the packaging.</p></li>
+   <li><span class="tag">02</span><h3>Front to back</h3><p>One easy pass over the scalp, then around the ears and the back of the neck.</p></li>
+   <li><span class="tag">03</span><h3>Get on with your day</h3><p>Nothing to rinse. The goal is a clean, matte feel that isn't sticky.</p></li>
   </ol>
-  <p class="scent">Our signature scent direction: cedarwood, vetiver and petitgrain — warm, woody, a little bright.</p>
- </div>
-</section>
-
-<section class="why" aria-labelledby="why-h">
- <div class="wrap">
-  <blockquote>"Going bald isn't a problem to fix. <span>It's a look to own.</span>"</blockquote>
-  <div>
-   <span class="kicker">Why we exist</span>
-   <h2 id="why-h">Bald by fate or by choice. Either way, welcome.</h2>
-   <p>Most grooming is made for hair. Shaved heads get whatever's left over. Good Head Club is the opposite: products made specifically for the bare head. No miracle promises — just good stuff that takes your head seriously.</p>
+  <h3 style="margin-top:56px;font-size:1.6rem">When you'd reach for one</h3>
+  <div class="grid" style="margin-top:20px">
+   <div class="card"><h3>After the gym</h3><p>Before the shower, or instead of one when you're heading straight out.</p></div>
+   <div class="card"><h3>On the commute</h3><p>Hot train, long walk, bike ride. Arrive looking like you didn't.</p></div>
+   <div class="card"><h3>Before a meeting</h3><p>Ten seconds in the hallway before the camera or the handshake.</p></div>
+   <div class="card"><h3>On the road</h3><p>Flights, road trips, festivals, a day at the beach. They're made to live in a bag.</p></div>
   </div>
  </div>
 </section>
+
+<section class="why" aria-labelledby="feel-h">
+ <div class="wrap">
+  <blockquote>"Like a cold splash of water. <span>Except you're still at your desk.</span>"</blockquote>
+  <div>
+   <span class="kicker">How they should feel</span>
+   <h2 id="feel-h">Cool, clean, and actually made for bare heads.</h2>
+   <p>We're aiming for a wipe that feels cooling and refreshing, leaves less shine, and doesn't leave anything sticky behind. It's made for the scalp, not borrowed from the baby aisle.</p>
+   <p class="scent">Our planned signature scent direction is cedarwood, vetiver and petitgrain. Warm, woody, a little bright, and never overpowering.</p>
+  </div>
+ </div>
+</section>
+
+<section aria-labelledby="faq-h" style="padding-top:0">
+ <div class="wrap">
+  <span class="kicker">FAQ</span>
+  <h2 id="faq-h">Fair questions.</h2>
+  <div class="faq">
+   <details><summary>When can I buy them?</summary><p>We don't have a launch date yet. The wipes are still in development, and we'd rather get them right than rush. Join the waitlist and you'll be the first to know.</p></details>
+   <details><summary>What's in them?</summary><p>We're still finalizing the formula, so we're not listing ingredients until they're confirmed. When we do, we'll publish the full list.</p></details>
+   <details><summary>How much will they cost?</summary><p>Pricing and pack sizes aren't set yet. We'll share them with the waitlist before launch.</p></details>
+   <details><summary>Can I use them on my face too?</summary><p>They're being designed for the scalp first. We'll share clear usage guidance once the formula is final.</p></details>
+   <details><summary>Do I have to be fully bald?</summary><p>Nope. Bald by fate, shaved by choice, buzzed short: if your scalp sees daylight, you're in the club.</p></details>
+  </div>
+ </div>
+</section>
+
+<div class="later"><div class="wrap"><strong>Later from the club:</strong> shave soap, deodorant, scalp sunscreen &amp; balm.</div></div>
 
 <section id="join" aria-labelledby="join-h" style="padding-top:0">
  <div class="final">
-  <h2 id="join-h">Join the club.</h2>
-  <p>Be first to know when the wipes launch.</p>
+  <h2 id="join-h">Get on the wipes waitlist.</h2>
+  <p>One email when they're ready. That's the deal.</p>
   <div class="signup-block">
   <!-- EMAIL PROVIDER HOOKUP: same as the hero form above. -->
   <form class="signup" action="#" method="post" data-demo="true" novalidate>
@@ -154,7 +180,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
    <input id="email2" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
    <button type="submit">Count me in</button>
   </form>
-  <div class="thanks" role="status" aria-live="polite" tabindex="-1"><strong>You're in the club.</strong> Thanks for signing up — we'll be in touch when the wipes are ready.</div>
+  <div class="thanks" role="status" aria-live="polite" tabindex="-1"><strong>You're on the list.</strong> Thanks! We'll let you know when the wipes are ready.</div>
   </div>
  </div>
 </section>
