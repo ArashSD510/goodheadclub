@@ -4,14 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Good Head Club — Grooming for bald and shaved heads</title>
-<meta name="description" content="Good Head Club is a new grooming brand for bald and shaved heads. First up: bald head wipes. Join the waitlist.">
+<meta name="description" content="Head Wipes, Nº 01 by Good Head Club. Wipes for bald and shaved heads: less shine, less sweat, no sink needed. $29 for 30 wipes.">
 <link rel="canonical" href="https://goodheadclub.com/">
-<meta property="og:type" content="website">
+<meta property="og:type" content="product">
 <meta property="og:url" content="https://goodheadclub.com/">
 <meta property="og:title" content="Good Head Club — Grooming for bald and shaved heads">
-<meta property="og:description" content="Bald head wipes for shine, sweat and freshening up on the go. Join the waitlist.">
+<meta property="og:description" content="Head Wipes, Nº 01. Bald head wipes for shine, sweat and freshening up on the go. $29 for 30 wipes.">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#111111">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Product","name":"Head Wipes, Nº 01","description":"Wipes for bald and shaved heads. Scented with cedarwood, vetiver and petitgrain. 30 wipes, a one-month supply.","brand":{"@type":"Brand","name":"Good Head Club"},"url":"https://goodheadclub.com/","offers":{"@type":"Offer","price":"29.00","priceCurrency":"USD","availability":"https://schema.org/OutOfStock","url":"https://goodheadclub.com/"}}
+</script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,6 +69,27 @@ button:not(.flip):hover{background:var(--rust)}
 .flip-hint{position:absolute;left:0;right:0;bottom:46px;text-align:center;font-size:.7rem;letter-spacing:.08em;color:var(--muted)}
 .h-tap{display:none}@media(hover:none){.h-hover{display:none}.h-tap{display:inline}}
 @media(prefers-reduced-motion:reduce){.flip-in,.flip:hover .flip-in,.flip.is-flipped .flip-in{transform:none;transition:none}.face{transition:opacity .4s ease;backface-visibility:visible}.face-b{transform:none;opacity:0}.flip.is-flipped .face-f{opacity:0}.flip.is-flipped .face-b{opacity:1}@media(hover:hover){.flip:hover .face-f{opacity:0}.flip:hover .face-b{opacity:1}}}
+/* product */
+.pdp-name{font-size:clamp(2.8rem,6vw,5.2rem);margin:0 0 .12em}
+.pdp-sub{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--rust);margin:0 0 28px}
+.pdp-meta{border-top:1px solid var(--ink);margin:0 0 28px;max-width:500px}
+.pdp-meta div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.pdp-meta dt{color:var(--muted)}.pdp-meta dd{margin:0;text-align:right}
+.price{font-family:var(--serif);font-size:2rem;line-height:1;margin:0 0 6px}
+.pdp-pack{color:var(--muted);margin:0 0 26px}
+.lead.sm{font-size:1rem;margin-bottom:28px}
+button.atc{display:block;width:100%;max-width:500px;height:60px}
+/* modal */
+.modal{position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.modal-bg{position:absolute;inset:0;background:rgba(17,17,17,.55)}
+.modal-box{position:relative;background:var(--paper);border:1px solid var(--ink);width:100%;max-width:520px;padding:44px 40px 36px;box-shadow:8px 8px 0 var(--kraft)}
+.modal-box h2{font-size:2.4rem;margin:0 0 .3em}
+.modal-box p{color:var(--muted);margin:0 0 26px}
+.modal-x{position:absolute;top:10px;right:10px;width:40px;height:40px;padding:0;background:transparent;color:var(--ink);font-size:1.4rem;font-weight:400;letter-spacing:0}
+button.modal-x:hover{background:var(--stone)}
+body.noscroll{overflow:hidden}
+@media(max-width:560px){.modal{align-items:flex-end;padding:0}.modal-box{max-width:none;padding:40px 20px 28px;box-shadow:none;border-width:1px 0 0}}
 .packet{width:88%;max-width:480px;filter:drop-shadow(0 30px 28px rgba(40,30,15,.22))}
 /* sections */
 section{padding:112px 0}
@@ -144,35 +168,28 @@ footer .logo{color:var(--paper);font-size:.8rem}
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="bar mono">Bald head wipes · In development · Waitlist open</div>
+<div class="bar mono">Nº 01 Head Wipes · cedarwood / vetiver / petitgrain</div>
 <header class="top">
  <div class="nav">
   <a class="logo" href="#" aria-label="Good Head Club home"><img src="wordmark.svg" alt="Good Head Club" style="height:22px;width:auto;display:block"></a>
-  <a class="cta mono" href="#join">Join the waitlist</a>
+  <a class="cta mono" href="#product">Shop Nº 01</a>
  </div>
 </header>
 <main id="main">
 <section class="hero" aria-labelledby="hero-h">
  <div class="wrap">
-  <div>
-   <span class="eyebrow mono">No. 01 — Bald head wipes</span>
-   <h1 id="hero-h">A fresh head, <em>anywhere.</em></h1>
-   <p class="lead">Wipes made for bald and shaved heads. Take down the shine, clear off the sweat, and freshen up in ten seconds, no sink required. We're making them now. Join the waitlist and you'll hear first.</p>
-   <div class="signup-block">
-   <!--
-     EMAIL PROVIDER HOOKUP:
-     Replace action="#" with your provider's endpoint (e.g. Klaviyo, Mailchimp, ConvertKit, Formspree),
-     set method="post", match the input name to what the provider expects, and remove
-     data-demo="true" so the JS below lets the form submit for real.
-   -->
-   <form class="signup" action="#" method="post" data-demo="true" novalidate>
-    <label for="email1" class="sr">Email address</label>
-    <input id="email1" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
-    <button type="submit">Join the waitlist</button>
-   </form>
-   <div class="thanks" role="status" aria-live="polite" tabindex="-1"><strong>You're on the list.</strong> Thanks. We'll let you know when the wipes are ready.</div>
-   <p class="fine">Wipes news only. No spam, unsubscribe anytime.</p>
-   </div>
+  <div id="product">
+   <span class="eyebrow mono">Good Head Club · Bald head wipes</span>
+   <h1 id="hero-h" class="pdp-name">Head Wipes, Nº 01</h1>
+   <p class="pdp-sub">for bald &amp; shaved heads</p>
+   <p class="price">$29</p>
+   <p class="pdp-pack mono">30 wipes · one-month supply</p>
+   <p class="lead sm">A fresh head, anywhere. Take down the shine, clear off the sweat, and freshen up in ten seconds, no sink required.</p>
+   <dl class="pdp-meta mono">
+    <div><dt>Scent</dt><dd>cedarwood / vetiver / petitgrain</dd></div>
+    <div><dt>Rinse</dt><dd>None needed</dd></div>
+   </dl>
+   <button type="button" class="atc" data-event="add_to_cart" aria-haspopup="dialog" aria-controls="soldout">Add to cart · $29</button>
   </div>
   <div class="packet-stage">
    <svg class="defs" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden"><defs>
@@ -227,7 +244,7 @@ footer .logo{color:var(--paper);font-size:.8rem}
     </span>
    </button>
    <span class="flip-hint mono" aria-hidden="true"><span class="h-hover">Hover to flip</span><span class="h-tap">Tap to flip</span></span>
-   <span class="cap mono">Fig. 01<span class="fb"> · Front &amp; back</span></span><span class="cap r mono">Packaging not final</span>
+   <span class="cap mono">Fig. 01<span class="fb"> · Front &amp; back</span></span>
   </div>
  </div>
 </section>
@@ -252,7 +269,7 @@ footer .logo{color:var(--paper);font-size:.8rem}
   <span class="kicker mono">How they work</span>
   <h2 id="how-h">Open. Wipe. Done.</h2>
   <ol class="steps">
-   <li><span class="big" aria-hidden="true">i.</span><h3>Pull one out</h3><p>Tear the notch, pull a wipe, press the zip shut to keep the rest fresh. Packaging isn't final yet.</p></li>
+   <li><span class="big" aria-hidden="true">i.</span><h3>Pull one out</h3><p>Tear the notch, pull a wipe, press the zip shut to keep the rest fresh.</p></li>
    <li><span class="big" aria-hidden="true">ii.</span><h3>Front to back</h3><p>One easy pass over the scalp, then around the ears and the back of the neck.</p></li>
    <li><span class="big" aria-hidden="true">iii.</span><h3>Get on with your day</h3><p>Nothing to rinse. The goal is a clean, matte feel that isn't sticky.</p></li>
   </ol>
@@ -278,22 +295,20 @@ footer .logo{color:var(--paper);font-size:.8rem}
    <blockquote>“Like a cold splash of water. <span>Except you're still at your desk.”</span></blockquote>
    <span class="kicker mono">How they should feel</span>
    <h2 id="feel-h">Cool, clean, and made for bare heads.</h2>
-   <p class="intro">We're aiming for a wipe that feels cooling and refreshing, leaves less shine, and doesn't leave anything sticky behind. It's made for the scalp, not borrowed from the baby aisle.</p>
+   <p class="intro">A wipe that feels cooling and refreshing, leaves less shine, and doesn't leave anything sticky behind. It's made for the scalp, not borrowed from the baby aisle.</p>
   </div>
   <div class="label" role="group" aria-label="Product spec label">
-   <div class="hd"><span>Good Head Club</span><span>Spec sheet · Draft</span></div>
+   <div class="hd"><span>Good Head Club</span><span>Spec sheet</span></div>
    <div class="ttl"><b>Head Wipe Nº 01</b><span class="hand">for bald &amp; shaved heads</span></div>
    <dl>
     <dt>Use</dt><dd>Scalp first. Shine, sweat, on-the-go refresh</dd>
     <dt>Feel</dt><dd>Cooling, clean, matte, not sticky</dd>
     <dt>Rinse</dt><dd>None needed</dd>
-    <dt>Pack</dt><dd>Multi-wipe pouch with a tear notch and press-to-close zip. Not final</dd>
-    <dt>Scent</dt><dd>Planned: cedarwood, vetiver, petitgrain. Warm, woody, a little bright, never overpowering</dd>
-    <dt>Formula</dt><dd>Being finalized. Full ingredient list published once confirmed</dd>
-    <dt>Price</dt><dd>Not set yet</dd>
-    <dt>Launch</dt><dd>No date yet</dd>
+    <dt>Pack</dt><dd>30-wipe pouch with a tear notch and press-to-close zip</dd>
+    <dt>Scent</dt><dd>Cedarwood, vetiver, petitgrain. Warm, woody, a little bright, never overpowering</dd>
+    <dt>Formula</dt><dd>Aloe vera, niacinamide, glycerin, panthenol, vitamin E</dd>
+    <dt>Price</dt><dd>$29 · one-month supply</dd>
    </dl>
-   <div class="ft">Status: in development. Details subject to change.</div>
   </div>
  </div>
 </section>
@@ -302,10 +317,9 @@ footer .logo{color:var(--paper);font-size:.8rem}
  <div class="wrap split">
   <div><span class="kicker mono">FAQ</span><h2 id="faq-h">Fair questions.</h2></div>
   <div class="faq">
-   <details><summary>When can I buy them?</summary><p>Early spring 2027. Join the list and you'll hear first.</p></details>
-   <details><summary>What's in them?</summary><p>Aloe vera, niacinamide, glycerin, panthenol and vitamin E, scented with natural cedarwood, vetiver and petitgrain essential oils. No parabens, no synthetic scents. Full ingredient list before launch.</p></details>
-   <details><summary>How many are in a pack?</summary><p>30 wipes. One a day, one month.</p></details>
-   <details><summary>How much will they cost?</summary><p>Pricing isn't set yet. The waitlist sees it first.</p></details>
+   <details><summary>When will they be back in stock?</summary><p>Early spring 2027. Leave your email and you'll hear first.</p></details>
+   <details><summary>What's in them?</summary><p>Aloe vera, niacinamide, glycerin, panthenol and vitamin E, scented with natural cedarwood, vetiver and petitgrain essential oils. No parabens, no synthetic scents.</p></details>
+   <details><summary>How much are they?</summary><p>$29 for a pack of 30, one a day for a month.</p></details>
    <details><summary>Is there alcohol in them?</summary><p>A little, on purpose. It helps them dry fast so you're not left damp.</p></details>
    <details><summary>Do they have SPF?</summary><p>No. A scalp sunscreen is coming later.</p></details>
    <details><summary>Can I use them on my face?</summary><p>They're made for the scalp.</p></details>
@@ -319,21 +333,38 @@ footer .logo{color:var(--paper);font-size:.8rem}
 
 <section id="join" class="final" aria-labelledby="join-h">
  <div class="wrap">
-  <span class="kicker mono">The waitlist</span>
+  <span class="kicker mono">Restock notice</span>
   <h2 id="join-h">Want good head? <em>Get on the list.</em></h2>
-  <p>One email when they're ready. That's the deal.</p>
+  <p>Our first batch is gone. One email when Nº 01 is back. That's the deal.</p>
   <div class="signup-block">
   <!-- EMAIL PROVIDER HOOKUP: same as the hero form above. -->
   <form class="signup" action="#" method="post" data-demo="true" novalidate>
    <label for="email2" class="sr">Email address</label>
    <input id="email2" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
-   <button type="submit">Count me in</button>
+   <button type="submit">Notify me</button>
   </form>
-  <div class="thanks" role="status" aria-live="polite" tabindex="-1"><strong>You're on the list.</strong> Thanks. We'll let you know when the wipes are ready.</div>
+  <div class="thanks" role="status" aria-live="polite" tabindex="-1"><strong>You're on the list.</strong> We'll email you when it restocks.</div>
   </div>
  </div>
 </section>
 </main>
+<div class="modal" id="soldout" role="dialog" aria-modal="true" aria-labelledby="so-h" aria-describedby="so-d" hidden>
+ <div class="modal-bg" data-close></div>
+ <div class="modal-box">
+  <button type="button" class="modal-x" data-close aria-label="Close">&times;</button>
+  <span class="kicker mono">Head Wipes, Nº 01</span>
+  <h2 id="so-h">Sold out.</h2>
+  <p id="so-d">Our first batch is gone. Leave your email and we'll let you know when it's back.</p>
+  <div class="signup-block">
+  <form class="signup" action="#" method="post" data-demo="true" novalidate>
+   <label for="email3" class="sr">Email address</label>
+   <input id="email3" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+   <button type="submit">Notify me</button>
+  </form>
+  <div class="thanks" role="status" aria-live="polite" tabindex="-1"><strong>You're on the list.</strong> We'll email you when it restocks.</div>
+  </div>
+ </div>
+</div>
 <footer>
  <div class="wrap">
   <span class="logo">Good Head Club</span>
@@ -353,6 +384,18 @@ document.querySelectorAll('form.signup').forEach(function(f){
   f.style.display='none';t.style.display='block';t.focus();
  });
 });
+</script>
+<script>
+(function(){var m=document.getElementById('soldout'),o=document.querySelector('[data-event="add_to_cart"]'),last;if(!m||!o)return;
+function f(){return m.querySelectorAll('button,input,[href],[tabindex]:not([tabindex="-1"])')}
+function vis(){return Array.prototype.filter.call(f(),function(e){return e.offsetParent!==null})}
+function open(){last=document.activeElement;m.hidden=false;m.classList.add('open');document.body.classList.add('noscroll');var i=m.querySelector('input');(i&&i.offsetParent?i:vis()[0]).focus()}
+function close(){m.classList.remove('open');m.hidden=true;document.body.classList.remove('noscroll');if(last)last.focus()}
+o.addEventListener('click',open);
+m.querySelectorAll('[data-close]').forEach(function(c){c.addEventListener('click',close)});
+document.addEventListener('keydown',function(e){if(!m.classList.contains('open'))return;if(e.key==='Escape'){close();return}
+ if(e.key==='Tab'){var v=vis(),a=v[0],z=v[v.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}}});
+if(/[?&]modal\b/.test(location.search))open();})();
 </script>
 <script>
 (function(){var b=document.querySelector('.flip');if(!b)return;var F='Good Head Club head wipes pouch. Showing front: typed paper label reading Head Wipes, for bald and shaved heads. Press to flip and see the back.',B='Good Head Club head wipes pouch. Showing back: tear notch, press-to-seal zip and the line Tear. Zip. Done. Press to flip to the front.';
