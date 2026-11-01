@@ -56,8 +56,8 @@ button:hover{background:var(--rust)}
 .packet-stage .cap{position:absolute;left:20px;bottom:16px;color:var(--muted)}
 @media(max-width:600px){.packet-stage .fb{display:none}}
 .packet-stage .cap.r{left:auto;right:20px}
-.flip{all:unset;display:block;cursor:pointer;width:62%;max-width:340px;aspect-ratio:280/360;perspective:1400px;border-radius:6px;margin-top:-28px}
-.flip:focus-visible{outline:2px solid var(--rust);outline-offset:10px}
+.flip{all:unset;display:block;cursor:pointer;width:62%;max-width:340px;aspect-ratio:280/360;perspective:1400px;border-radius:6px;margin-top:-28px;background:none;border:0;outline:none;-webkit-tap-highlight-color:transparent;-webkit-appearance:none;appearance:none}
+.flip:focus,.flip:focus-visible,.flip:active{outline:none;background:none;box-shadow:none}
 .flip-in{display:block;position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .8s ease}
 .face svg{display:block;width:100%;height:100%}.face{display:block;position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 30px 28px rgba(40,30,15,.22));backface-visibility:hidden;-webkit-backface-visibility:hidden}
 .face-b{transform:rotateY(180deg)}
