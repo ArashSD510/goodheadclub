@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){var q=location.search,n=navigator;if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+if(!/[?&]anim\b/.test(q)&&(/[?&](flip|modal|sticky)\b/.test(q)||n.webdriver||/HeadlessChrome/.test(n.userAgent)))return;
+var r=document.documentElement;r.classList.add('ghc-anim','ghc-pre');setTimeout(function(){r.classList.remove('ghc-pre')},2500)})();</script>
 <title>Good Head Club — Grooming for bald and shaved heads</title>
 <meta name="description" content="Head Wipes, Nº 01 by Good Head Club. Wipes for bald and shaved heads: less shine, less sweat, no sink needed. $29 for 30 wipes.">
 <link rel="canonical" href="https://goodheadclub.com/">
@@ -89,6 +92,8 @@ button.atc{display:block;width:100%;max-width:500px;height:60px;margin-left:auto
 .modal-x{position:absolute;top:8px;right:8px;width:44px;height:44px;padding:0;background:transparent;color:var(--ink);font-size:1.4rem;font-weight:400;letter-spacing:0}
 button.modal-x:hover{background:var(--stone)}
 body.noscroll{overflow:hidden}
+.ghc-pre .bar,.ghc-pre header.top .nav>*,.ghc-pre .hero .wrap>*{opacity:0}
+.wm{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}.wi{display:inline-block}
 .benefits{list-style:none;padding:0;margin:0 0 28px;max-width:500px}
 .benefits li{position:relative;padding:4px 0 4px 22px;font-size:1rem}
 .benefits li:before{content:"";position:absolute;left:2px;top:.95em;width:10px;height:1px;background:var(--rust)}
@@ -423,8 +428,9 @@ document.querySelectorAll('form.signup').forEach(function(f){
 (function(){var m=document.getElementById('soldout'),o=document.querySelectorAll('[data-event="add_to_cart"]'),last;if(!m||!o.length)return;
 function f(){return m.querySelectorAll('button,input,[href],[tabindex]:not([tabindex="-1"])')}
 function vis(){return Array.prototype.filter.call(f(),function(e){return e.offsetParent!==null})}
-function open(){last=document.activeElement;m.hidden=false;m.classList.add('open');document.body.classList.add('noscroll');var i=m.querySelector('input');(i&&i.offsetParent?i:vis()[0]).focus()}
-function close(){m.classList.remove('open');m.hidden=true;document.body.classList.remove('noscroll');if(last)last.focus()}
+function open(){last=document.activeElement;m.hidden=false;m.classList.add('open');document.body.classList.add('noscroll');var i=m.querySelector('input');(i&&i.offsetParent?i:vis()[0]).focus();if(window.ghcModalIn)window.ghcModalIn()}
+var closing=false;function hide(){closing=false;m.classList.remove('open');m.hidden=true;document.body.classList.remove('noscroll');if(last)last.focus()}
+function close(){if(closing)return;if(window.ghcModalOut){closing=true;window.ghcModalOut(hide)}else hide()}
 o.forEach(function(x){x.addEventListener('click',open)});
 m.querySelectorAll('[data-close]').forEach(function(c){c.addEventListener('click',close)});
 document.addEventListener('keydown',function(e){if(!m.classList.contains('open'))return;if(e.key==='Escape'){close();return}
@@ -445,6 +451,61 @@ function set(v){b.classList.toggle('is-flipped',v);b.setAttribute('aria-pressed'
 b.addEventListener('click',function(){set(!b.classList.contains('is-flipped'))});
 b.addEventListener('mouseleave',function(){if(matchMedia('(hover:hover)').matches)set(false)});
 if(/[?&]flip\b/.test(location.search)){var i=b.firstElementChild;i.style.transition='none';set(true);setTimeout(function(){i.style.transition=''},50)}})();
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+ var root=document.documentElement,q=location.search;
+ function done(){root.classList.remove('ghc-pre')}
+ if(!root.classList.contains('ghc-anim')||!window.gsap){done();return}
+ var g=gsap;try{
+ if(window.ScrollTrigger)g.registerPlugin(ScrollTrigger);
+ var E='power3.out',X='expo.out',$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+ // title word mask
+ var h=document.querySelector('.pdp-name');
+ if(h){h.innerHTML=h.innerHTML.trim().split(/\s+/).map(function(w){return '<span class="wm"><span class="wi">'+w+'</span></span>'}).join(' ')}
+ var tl=g.timeline({defaults:{ease:E,duration:1}});
+ tl.from('.bar',{opacity:0,duration:.8})
+   .from('header.top .nav>*',{opacity:0,y:-12,stagger:.08,duration:.8},'<.1')
+   .from('.hero .packet-stage',{opacity:0,duration:1},'<')
+   .from('.flip',{opacity:0,y:30,scale:.96,duration:1.2,ease:X},'<.1')
+   .from('.hero .eyebrow',{opacity:0,y:16},'<.1')
+   .from('.pdp-name .wi',{yPercent:110,duration:1.1,ease:X,stagger:.08},'<.05')
+   .from('.pdp-sub,.price,.pdp-pack,.hero .lead',{opacity:0,y:18,stagger:.08},'<.3')
+   .from('.pdp-meta>div,.benefits li',{opacity:0,y:16,stagger:.06,duration:.8},'<.2')
+   .from('.hero .atc',{opacity:0,y:20},'<.2')
+   .from('.flip-hint,.packet-stage .cap',{opacity:0,duration:.8},'<');
+ done();
+ g.to('.flip',{y:-8,duration:3,ease:'sine.inOut',yoyo:true,repeat:-1,delay:1.4});
+ if(window.ScrollTrigger){
+  var t=$('main section:not(.hero) .kicker,main section:not(.hero) h2,main section:not(.hero) .intro,.feel blockquote,.cols>div,.steps li,.uses>div,.label .hd,.label .ttl,.label dt,.label dd,.faq details,.later p,.final p,.final .signup-block');
+  g.set(t,{opacity:0,y:22});
+  ScrollTrigger.batch(t,{start:'top 90%',once:true,onEnter:function(b){g.to(b,{opacity:1,y:0,duration:.9,ease:E,stagger:.07,overwrite:true})}});
+ }
+ // FAQ height
+ $('.faq details').forEach(function(d){var s=d.querySelector('summary'),p=d.querySelector('p');
+  s.addEventListener('click',function(e){e.preventDefault();g.killTweensOf(p);
+   if(!d.open){d.open=true;g.fromTo(p,{height:0,opacity:0,overflow:'hidden'},{height:'auto',opacity:1,duration:.5,ease:E,clearProps:'height,overflow'})}
+   else g.to(p,{height:0,opacity:0,overflow:'hidden',duration:.4,ease:'power2.inOut',onComplete:function(){d.open=false;g.set(p,{clearProps:'all'})}})})});
+ // modal
+ var m=document.getElementById('soldout');
+ window.ghcModalIn=function(){var mob=matchMedia('(max-width:560px)').matches;g.fromTo(m.querySelector('.modal-bg'),{opacity:0},{opacity:1,duration:.4,ease:'power2.out'});
+  g.fromTo(m.querySelector('.modal-box'),mob?{yPercent:100}:{opacity:0,y:24},mob?{yPercent:0,duration:.6,ease:X}:{opacity:1,y:0,duration:.6,ease:X})};
+ window.ghcModalOut=function(cb){var mob=matchMedia('(max-width:560px)').matches;g.to(m.querySelector('.modal-bg'),{opacity:0,duration:.3});
+  g.to(m.querySelector('.modal-box'),mob?{yPercent:100,duration:.35,ease:'power2.in'}:{opacity:0,y:16,duration:.3,ease:'power2.in',onComplete:function(){}}).eventCallback('onComplete',function(){g.set(m.querySelectorAll('.modal-bg,.modal-box'),{clearProps:'all'});cb()})};
+ // sticky bar
+ var bar=document.querySelector('.sticky-atc');
+ if(bar){bar.style.transition='none';var st=function(){var on=bar.classList.contains('show')&&!document.body.classList.contains('noscroll')&&getComputedStyle(bar).display!=='none';
+   g.to(bar,{yPercent:on?0:110,autoAlpha:on?1:0,duration:on?.6:.4,ease:on?X:'power2.in',overwrite:true})};
+  g.set(bar,{yPercent:110,autoAlpha:0});st();
+  var mo=new MutationObserver(st);mo.observe(bar,{attributes:true,attributeFilter:['class']});mo.observe(document.body,{attributes:true,attributeFilter:['class']})}
+ // hover micro
+ if(matchMedia('(hover:hover)').matches)$('button:not(.flip):not(.modal-x),.nav a.cta').forEach(function(b){
+  b.addEventListener('mouseenter',function(){g.to(b,{y:-2,duration:.3,ease:E})});
+  b.addEventListener('mouseleave',function(){g.to(b,{y:0,duration:.4,ease:E})})});
+ }catch(err){done();console.warn(err)}
+});
 </script>
 </body>
 </html>
