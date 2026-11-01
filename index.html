@@ -101,7 +101,7 @@ body.noscroll{overflow:hidden}
 .sticky-atc{display:none}
 @media(max-width:900px){
  .hero .packet-stage{order:-1}
- body{padding-bottom:calc(81px + env(safe-area-inset-bottom))}
+ body{padding-bottom:0}
  .sticky-atc{display:flex;align-items:center;justify-content:center;gap:14px;position:fixed;left:0;right:0;bottom:0;z-index:15;background:var(--paper);border-top:1px solid var(--ink);padding:10px 20px calc(10px + env(safe-area-inset-bottom));transform:translateY(110%);transition:transform .25s ease;visibility:hidden}
  .sticky-atc.show{transform:none;visibility:visible}
  body.noscroll .sticky-atc{transform:translateY(110%);visibility:hidden}
