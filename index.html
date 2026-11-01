@@ -11,152 +11,263 @@
 <meta property="og:title" content="Good Head Club — Grooming for bald and shaved heads">
 <meta property="og:description" content="Bald head wipes for shine, sweat and freshening up on the go. Join the waitlist.">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#16201b">
+<meta name="theme-color" content="#111111">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Archivo:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#16201b;--ink2:#22302a;--cream:#f4efe6;--sand:#e8dfcf;--amber:#d9a25b;--muted:#5d6b64;--r:18px}
+:root{--ink:#111;--paper:#f6f3ec;--stone:#ebe5d9;--kraft:#c9b48f;--rust:#8a5a2b;--muted:#5c5850;--line:#d6cfc1;
+--serif:"Cormorant Garamond",Garamond,"Times New Roman",serif;--sans:Archivo,"Helvetica Neue",Arial,sans-serif;--mono:"IBM Plex Mono","Courier New",monospace}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6}
-h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.1;margin:0 0 .5em;letter-spacing:-.01em}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
 .skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;background:#fff;padding:8px 12px;z-index:9}
-header.top{background:var(--ink);color:var(--cream)}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;max-width:1100px;margin:0 auto}
-.logo{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.9rem;text-decoration:none}
-.logo svg{width:32px;height:32px}
-.nav a.cta{font-size:.9rem;text-decoration:none;border:1px solid #ffffff40;padding:8px 16px;border-radius:999px}
-.nav a.cta:hover{border-color:var(--amber);color:var(--amber)}
-.hero{background:var(--ink);color:var(--cream);padding:72px 0 96px;position:relative;overflow:hidden}
-.hero:after{content:"";position:absolute;right:-180px;top:-120px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#2f4038,#16201b 70%);opacity:.9}
-.hero .wrap{position:relative;z-index:1}
-.eyebrow{display:inline-block;color:var(--amber);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;margin-bottom:18px}
-.hero h1{font-size:clamp(2.6rem,7vw,5rem);max-width:13ch}
-.hero h1 em{color:var(--amber);font-style:italic}
-.hero p.lead{font-size:1.2rem;max-width:40ch;color:#d9d3c7;margin:0 0 32px}
-form.signup{display:flex;gap:10px;max-width:540px;flex-wrap:nowrap}
-form.signup input{flex:1 1 200px;min-width:0;padding:15px 18px;border-radius:999px;border:2px solid transparent;font-size:1rem;background:var(--cream);color:var(--ink)}
-form.signup input:focus{outline:none;border-color:var(--amber)}
-button{padding:15px 26px;border:0;border-radius:999px;background:var(--amber);color:var(--ink);font-weight:800;font-size:1rem;cursor:pointer}
-button:hover{background:#e6b471}button:focus-visible,a:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
-.fine{font-size:.85rem;color:#a9b3ad;margin-top:12px}
-.thanks{display:none;max-width:540px;background:var(--ink2);border:1px solid #ffffff22;border-radius:var(--r);padding:20px 24px}
-.thanks strong{color:var(--amber)}
-section{padding:88px 0}
-.kicker{color:#8a6a3c;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem}
-h2{font-size:clamp(2rem,4.5vw,3rem);max-width:20ch}
-.intro{max-width:60ch;color:var(--muted);font-size:1.1rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;margin-top:40px}
-.card{background:#fff;border-radius:var(--r);padding:28px;border:1px solid var(--sand)}
-.card h3{font-size:1.3rem}.card p{margin:0;color:var(--muted)}
-.ico{width:44px;height:44px;border-radius:12px;background:var(--ink);color:var(--amber);display:grid;place-items:center;font-size:1.3rem;margin-bottom:16px}
-.road{background:var(--sand)}
-.steps{list-style:none;padding:0;margin:40px 0 0;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
-.steps li{background:var(--cream);border-radius:var(--r);padding:26px;position:relative}
-.steps li.now{background:var(--ink);color:var(--cream)}
-.steps .tag{font-size:.75rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8a6a3c}
-.steps li.now .tag{color:var(--amber)}
-.steps h3{font-size:1.25rem;margin:.4em 0 .3em}.steps p{margin:0;font-size:.95rem;opacity:.8}
-.scent{margin-top:28px;font-style:italic;color:var(--muted)}
-.why .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.why blockquote{margin:0;font-family:Georgia,serif;font-size:clamp(1.6rem,3.4vw,2.3rem);line-height:1.25}
-.why blockquote span{color:#8a6a3c}
-.why p{color:var(--muted);font-size:1.08rem}
-.final{background:var(--ink);color:var(--cream);text-align:center;border-radius:28px;padding:64px 24px;margin:0 auto;max-width:1052px}
-.final h2{margin:0 auto .4em}.final p{color:#d9d3c7;margin:0 0 28px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:2px solid var(--rust);outline-offset:3px}
+.mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+/* header */
+.bar{background:var(--ink);color:var(--paper);text-align:center;padding:9px 16px}
+header.top{border-bottom:1px solid var(--ink);background:var(--paper)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:22px 32px;max-width:1200px;margin:0 auto}
+.logo{font-family:var(--sans);font-weight:800;letter-spacing:.32em;text-transform:uppercase;font-size:.95rem;text-decoration:none}
+.nav a.cta{text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:2px}
+.nav a.cta:hover{color:var(--rust);border-color:var(--rust)}
+/* hero */
+.hero{padding:88px 0 104px;border-bottom:1px solid var(--line)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+.eyebrow{color:var(--muted);display:block;margin-bottom:28px}
+h1,h2{font-family:var(--serif);font-weight:400;line-height:1.02;letter-spacing:-.01em;margin:0 0 .45em}
+.hero h1{font-size:clamp(3rem,7.4vw,6.4rem)}
+.hero h1 em{font-style:italic;color:var(--rust)}
+.lead{font-size:1.12rem;max-width:42ch;color:var(--muted);margin:0 0 40px}
+form.signup{display:flex;max-width:500px;border:1px solid var(--ink);background:#fff}
+form.signup input{flex:1;min-width:0;padding:17px 18px;border:0;font:inherit;font-size:1rem;background:transparent;color:var(--ink)}
+form.signup input:focus{outline:none;box-shadow:inset 0 0 0 2px var(--rust)}
+form.signup input[aria-invalid=true]{box-shadow:inset 0 0 0 2px #a3241b}
+button{padding:0 26px;border:0;background:var(--ink);color:var(--paper);font-family:var(--sans);font-weight:700;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer}
+button:hover{background:var(--rust)}
+.fine{font-size:.82rem;color:var(--muted);margin-top:14px}
+.thanks{display:none;max-width:500px;border:1px solid var(--ink);padding:18px 22px;background:#fff}
+.thanks strong{font-family:var(--serif);font-size:1.3rem;font-weight:500;display:block}
+/* packet */
+.packet-stage{background:var(--stone);aspect-ratio:4/5;display:grid;place-items:center;position:relative}
+.packet-stage .cap{position:absolute;left:20px;bottom:16px;color:var(--muted)}
+.packet-stage .cap.r{left:auto;right:20px}
+.packet{width:72%;max-width:380px;filter:drop-shadow(0 30px 28px rgba(40,30,15,.22))}
+/* sections */
+section{padding:112px 0}
+.kicker{display:block;color:var(--rust);margin-bottom:20px}
+h2{font-size:clamp(2.2rem,4.6vw,3.6rem);max-width:18ch}
+.intro{max-width:56ch;color:var(--muted);font-size:1.08rem}
+.split{display:grid;grid-template-columns:5fr 7fr;gap:72px;align-items:start}
+.cols{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink);margin-top:64px}
+.cols>div{padding:28px 24px 8px 0}
+.cols>div+div{padding-left:24px;border-left:1px solid var(--line)}
+.cols h3,.uses h3{font-family:var(--sans);font-weight:700;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;margin:12px 0 10px}
+.cols p,.uses p{margin:0;color:var(--muted);font-size:.95rem}
+.num{font-family:var(--mono);font-size:.75rem;color:var(--rust)}
+/* how — dark band */
+.dark{background:var(--ink);color:var(--paper)}
+.dark .kicker{color:var(--kraft)}.dark .intro,.dark p{color:#bdb6a8}
+.steps{list-style:none;padding:0;margin:64px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid #ffffff33}
+.steps li{padding:32px 32px 0 0}
+.steps li+li{padding-left:32px;border-left:1px solid #ffffff22}
+.steps .big{font-family:var(--serif);font-size:4.4rem;line-height:1;color:var(--kraft);display:block;margin-bottom:12px}
+.steps h3{font-family:var(--serif);font-weight:400;font-size:1.9rem;margin:0 0 8px;color:var(--paper)}
+.steps p{margin:0}
+/* uses */
+.uses{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:56px}
+.uses>div{border-top:1px solid var(--ink);padding-top:8px}
+/* label */
+.feel{background:var(--stone)}
+.feel blockquote{margin:0 0 32px;font-family:var(--serif);font-style:italic;font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.18;max-width:20ch}
+.feel blockquote span{color:var(--rust)}
+.label{background:#fbf9f3;border:1px solid var(--ink);font-family:var(--mono);font-size:.86rem;color:var(--ink);box-shadow:6px 6px 0 var(--kraft)}
+.label .hd{display:flex;justify-content:space-between;border-bottom:1px solid var(--ink);padding:14px 20px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+.label .ttl{padding:22px 20px 18px;border-bottom:1px dashed var(--ink)}
+.label .ttl b{display:block;font-family:var(--sans);font-weight:800;font-size:1.5rem;letter-spacing:.14em;text-transform:uppercase}
+.label dl{margin:0;display:grid;grid-template-columns:auto 1fr}
+.label dt,.label dd{margin:0;padding:12px 20px;border-bottom:1px solid var(--line)}
+.label dt{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;color:var(--muted);border-right:1px solid var(--line)}
+.label .ft{padding:14px 20px;font-size:.72rem;letter-spacing:.08em;color:var(--muted)}
+.hand{font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--rust)}
+/* faq */
+.faq{border-top:1px solid var(--ink)}
+.faq details{border-bottom:1px solid var(--line);padding:22px 0}
+.faq summary{cursor:pointer;font-family:var(--serif);font-size:1.5rem;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";font-family:var(--mono);font-size:1.1rem;color:var(--rust)}
+.faq details[open] summary:after{content:"–"}
+.faq details p{margin:.6em 0 0;color:var(--muted);max-width:60ch}
+/* roadmap line */
+.later{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:22px 0;text-align:center}
+.later p{margin:0;font-family:var(--mono);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
+.later strong{color:var(--rust);font-weight:500}
+/* final */
+.final{text-align:center;padding:128px 0}
+.final h2{margin:0 auto .3em;max-width:none}
+.final p{color:var(--muted);margin:0 0 36px}
 .final form.signup,.final .thanks{margin:0 auto;text-align:left}
-footer{padding:48px 0;font-size:.9rem;color:var(--muted)}
+footer{background:var(--ink);color:#bdb6a8;padding:40px 0;font-size:.85rem}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.faq{max-width:760px;margin-top:32px}
-.faq details{background:#fff;border:1px solid var(--sand);border-radius:var(--r);padding:18px 24px;margin-bottom:12px}
-.faq summary{font-weight:700;cursor:pointer;font-size:1.05rem}
-.faq details p{margin:.6em 0 0;color:var(--muted)}
-.later{padding:0 0 56px;color:var(--muted);font-size:.95rem;text-align:center}.later strong{color:#8a6a3c}
-@media (max-width:760px){.hero{padding:40px 0 72px}.hero:after{width:320px;height:320px;right:-140px;top:-60px}section{padding:64px 0}.why .wrap{grid-template-columns:1fr;gap:24px}.final{margin:0 12px;max-width:none}form.signup{flex-wrap:wrap}form.signup button{flex:1 1 100%}}
+footer .logo{color:var(--paper);font-size:.8rem}
+@media (max-width:900px){
+ .hero .wrap,.split{grid-template-columns:1fr;gap:48px}
+ .cols,.uses{grid-template-columns:1fr 1fr}
+ .cols>div:nth-child(3){padding-left:0;border-left:0}
+ .steps{grid-template-columns:1fr}.steps li,.steps li+li{padding:28px 0;border-left:0;border-bottom:1px solid #ffffff22}
+}
+@media (max-width:560px){
+ .wrap,.nav{padding-left:20px;padding-right:20px}
+ .hero{padding:48px 0 72px}section{padding:80px 0}.final{padding:88px 0}
+ .cols,.uses{grid-template-columns:1fr}.cols>div,.cols>div+div{padding:24px 0 8px;border-left:0}
+ .cols>div+div{border-top:1px solid var(--line)}
+ form.signup{flex-direction:column}form.signup button{padding:16px}
+ .nav .cta{font-size:.65rem}.logo{letter-spacing:.22em;font-size:.82rem}
+ .label dl{grid-template-columns:1fr}.label dt{border-right:0;border-bottom:0;padding-bottom:0}
+}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="bar mono">Bald head wipes · In development · Waitlist open</div>
 <header class="top">
  <div class="nav">
-  <a class="logo" href="#" aria-label="Good Head Club home"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#22302a"/><path d="M14 40a18 18 0 0 1 36 0" fill="none" stroke="#d9a25b" stroke-width="6" stroke-linecap="round"/><circle cx="32" cy="46" r="4" fill="#f4efe6"/></svg>Good Head Club</a>
-  <a class="cta" href="#join">Join the waitlist</a>
+  <a class="logo" href="#" aria-label="Good Head Club home">Good Head Club</a>
+  <a class="cta mono" href="#join">Join the waitlist</a>
  </div>
 </header>
 <main id="main">
 <section class="hero" aria-labelledby="hero-h">
  <div class="wrap">
-  <span class="eyebrow">Bald head wipes · Coming soon</span>
-  <h1 id="hero-h">A fresh head, <em>anywhere.</em></h1>
-  <p class="lead">Wipes made for bald and shaved heads. Take down the shine, clear off the sweat, and freshen up in ten seconds, no sink required. We're making them now. Join the waitlist and you'll hear first.</p>
-  <div class="signup-block">
-  <!--
-    EMAIL PROVIDER HOOKUP:
-    Replace action="#" with your provider's endpoint (e.g. Klaviyo, Mailchimp, ConvertKit, Formspree),
-    set method="post", match the input name to what the provider expects, and remove
-    data-demo="true" so the JS below lets the form submit for real.
-  -->
-  <form class="signup" action="#" method="post" data-demo="true" novalidate>
-   <label for="email1" class="skip">Email address</label>
-   <input id="email1" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
-   <button type="submit">Join the waitlist</button>
-  </form>
-  <div class="thanks" role="status" aria-live="polite" tabindex="-1"><strong>You're on the list.</strong> Thanks! We'll let you know when the wipes are ready.</div>
-  <p class="fine">Wipes news only. No spam, unsubscribe anytime.</p>
+  <div>
+   <span class="eyebrow mono">No. 01 — Bald head wipes</span>
+   <h1 id="hero-h">A fresh head, <em>anywhere.</em></h1>
+   <p class="lead">Wipes made for bald and shaved heads. Take down the shine, clear off the sweat, and freshen up in ten seconds, no sink required. We're making them now. Join the waitlist and you'll hear first.</p>
+   <div class="signup-block">
+   <!--
+     EMAIL PROVIDER HOOKUP:
+     Replace action="#" with your provider's endpoint (e.g. Klaviyo, Mailchimp, ConvertKit, Formspree),
+     set method="post", match the input name to what the provider expects, and remove
+     data-demo="true" so the JS below lets the form submit for real.
+   -->
+   <form class="signup" action="#" method="post" data-demo="true" novalidate>
+    <label for="email1" class="sr">Email address</label>
+    <input id="email1" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+    <button type="submit">Join the waitlist</button>
+   </form>
+   <div class="thanks" role="status" aria-live="polite" tabindex="-1"><strong>You're on the list.</strong> Thanks. We'll let you know when the wipes are ready.</div>
+   <p class="fine">Wipes news only. No spam, unsubscribe anytime.</p>
+   </div>
+  </div>
+  <div class="packet-stage" role="img" aria-label="Illustration of a Good Head Club wipe sachet with a typed paper label">
+   <svg class="packet" viewBox="0 0 300 380" aria-hidden="true">
+    <defs>
+     <linearGradient id="foil" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#2a2826"/><stop offset=".5" stop-color="#151413"/><stop offset="1" stop-color="#232120"/></linearGradient>
+     <linearGradient id="sheen" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".08"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+     <pattern id="crimp" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M0 6L3 0L6 6" fill="none" stroke="#3a3734" stroke-width="1"/></pattern>
+    </defs>
+    <rect x="10" y="10" width="280" height="360" rx="6" fill="url(#foil)"/>
+    <rect x="10" y="10" width="280" height="26" fill="url(#crimp)"/>
+    <rect x="10" y="344" width="280" height="26" fill="url(#crimp)"/>
+    <path d="M276 36l-10 9" stroke="#6c6760" stroke-width="1.5"/>
+    <text x="270" y="30" fill="#8d877d" font-family="IBM Plex Mono,monospace" font-size="7" text-anchor="end">TEAR</text>
+    <rect x="10" y="10" width="140" height="360" fill="url(#sheen)"/>
+    <g transform="rotate(-1.2 150 200)">
+     <rect x="52" y="92" width="196" height="214" fill="#f3eee2"/>
+     <rect x="52" y="92" width="196" height="214" fill="none" stroke="#111" stroke-width="1"/>
+     <text x="64" y="112" font-family="IBM Plex Mono,monospace" font-size="7.5" letter-spacing="1.2" fill="#111">GOOD HEAD CLUB</text>
+     <text x="236" y="112" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#111" text-anchor="end">Nº 01</text>
+     <line x1="52" y1="120" x2="248" y2="120" stroke="#111"/>
+     <text x="150" y="160" font-family="Archivo,Arial,sans-serif" font-weight="800" font-size="20" letter-spacing="3" fill="#111" text-anchor="middle">HEAD WIPE</text>
+     <text x="150" y="182" font-family="Cormorant Garamond,Georgia,serif" font-style="italic" font-size="14" fill="#8a5a2b" text-anchor="middle">for bald &amp; shaved heads</text>
+     <line x1="64" y1="200" x2="236" y2="200" stroke="#111" stroke-dasharray="2 3"/>
+     <text x="64" y="220" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#5c5850">SCENT (PLANNED)</text>
+     <text x="64" y="234" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#111">cedarwood / vetiver /</text>
+     <text x="64" y="246" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#111">petitgrain</text>
+     <text x="64" y="270" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#5c5850">BATCH</text>
+     <text x="64" y="284" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#111">in development</text>
+     <circle cx="212" cy="270" r="18" fill="none" stroke="#8a5a2b" stroke-width="1.2"/>
+     <text x="212" y="268" font-family="IBM Plex Mono,monospace" font-size="6" fill="#8a5a2b" text-anchor="middle">NO SINK</text>
+     <text x="212" y="277" font-family="IBM Plex Mono,monospace" font-size="6" fill="#8a5a2b" text-anchor="middle">NEEDED</text>
+    </g>
+   </svg>
+   <span class="cap mono">Fig. 01</span><span class="cap r mono">Packaging not final</span>
   </div>
  </div>
 </section>
 
 <section aria-labelledby="problem-h">
  <div class="wrap">
-  <span class="kicker">The problem</span>
-  <h2 id="problem-h">Your head is out in the world all day.</h2>
-  <p class="intro">No hair means nothing between your scalp and the sun, the gym, the subway, or the office lights. Most of us just deal with it using a paper towel, a sleeve, or a splash at the bathroom sink.</p>
-  <div class="grid">
-   <div class="card"><div class="ico" aria-hidden="true">◐</div><h3>Shine</h3><p>That end-of-day gleam always shows up right before the meeting or the photo.</p></div>
-   <div class="card"><div class="ico" aria-hidden="true">≈</div><h3>Sweat</h3><p>After a workout, a hot commute, or a walk in the sun, it has nowhere to hide.</p></div>
-   <div class="card"><div class="ico" aria-hidden="true">☀</div><h3>Sunscreen &amp; oil buildup</h3><p>You're doing the right thing with SPF, and by afternoon your head feels greasy anyway.</p></div>
-   <div class="card"><div class="ico" aria-hidden="true">↗</div><h3>No sink nearby</h3><p>Freshening up on the go shouldn't mean finding a bathroom and a roll of paper towels.</p></div>
+  <div class="split">
+   <div><span class="kicker mono">The problem</span><h2 id="problem-h">Your head is out in the world all day.</h2></div>
+   <p class="intro">No hair means nothing between your scalp and the sun, the gym, the subway, or the office lights. Most of us just deal with it using a paper towel, a sleeve, or a splash at the bathroom sink.</p>
+  </div>
+  <div class="cols">
+   <div><span class="num">01</span><h3>Shine</h3><p>That end-of-day gleam always shows up right before the meeting or the photo.</p></div>
+   <div><span class="num">02</span><h3>Sweat</h3><p>After a workout, a hot commute, or a walk in the sun, it has nowhere to hide.</p></div>
+   <div><span class="num">03</span><h3>Sunscreen &amp; oil</h3><p>You're doing the right thing with SPF, and by afternoon your head feels greasy anyway.</p></div>
+   <div><span class="num">04</span><h3>No sink nearby</h3><p>Freshening up on the go shouldn't mean finding a bathroom and a roll of paper towels.</p></div>
   </div>
  </div>
 </section>
 
-<section class="road" aria-labelledby="how-h">
+<section class="dark" aria-labelledby="how-h">
  <div class="wrap">
-  <span class="kicker">How they work</span>
+  <span class="kicker mono">How they work</span>
   <h2 id="how-h">Open. Wipe. Done.</h2>
   <ol class="steps">
-   <li class="now"><span class="tag">01</span><h3>Pull one out</h3><p>Individually wrapped, or close to it. We're still deciding on the packaging.</p></li>
-   <li><span class="tag">02</span><h3>Front to back</h3><p>One easy pass over the scalp, then around the ears and the back of the neck.</p></li>
-   <li><span class="tag">03</span><h3>Get on with your day</h3><p>Nothing to rinse. The goal is a clean, matte feel that isn't sticky.</p></li>
+   <li><span class="big" aria-hidden="true">i.</span><h3>Pull one out</h3><p>Individually wrapped, or close to it. We're still deciding on the packaging.</p></li>
+   <li><span class="big" aria-hidden="true">ii.</span><h3>Front to back</h3><p>One easy pass over the scalp, then around the ears and the back of the neck.</p></li>
+   <li><span class="big" aria-hidden="true">iii.</span><h3>Get on with your day</h3><p>Nothing to rinse. The goal is a clean, matte feel that isn't sticky.</p></li>
   </ol>
-  <h3 style="margin-top:56px;font-size:1.6rem">When you'd reach for one</h3>
-  <div class="grid" style="margin-top:20px">
-   <div class="card"><h3>After the gym</h3><p>Before the shower, or instead of one when you're heading straight out.</p></div>
-   <div class="card"><h3>On the commute</h3><p>Hot train, long walk, bike ride. Arrive looking like you didn't.</p></div>
-   <div class="card"><h3>Before a meeting</h3><p>Ten seconds in the hallway before the camera or the handshake.</p></div>
-   <div class="card"><h3>On the road</h3><p>Flights, road trips, festivals, a day at the beach. They're made to live in a bag.</p></div>
+ </div>
+</section>
+
+<section aria-labelledby="when-h">
+ <div class="wrap">
+  <span class="kicker mono">When you'd reach for one</span>
+  <h2 id="when-h">Made to live in a bag.</h2>
+  <div class="uses">
+   <div><h3>After the gym</h3><p>Before the shower, or instead of one when you're heading straight out.</p></div>
+   <div><h3>On the commute</h3><p>Hot train, long walk, bike ride. Arrive looking like you didn't.</p></div>
+   <div><h3>Before a meeting</h3><p>Ten seconds in the hallway before the camera or the handshake.</p></div>
+   <div><h3>On the road</h3><p>Flights, road trips, festivals, a day at the beach.</p></div>
   </div>
  </div>
 </section>
 
-<section class="why" aria-labelledby="feel-h">
- <div class="wrap">
-  <blockquote>"Like a cold splash of water. <span>Except you're still at your desk.</span>"</blockquote>
+<section class="feel" aria-labelledby="feel-h">
+ <div class="wrap split">
   <div>
-   <span class="kicker">How they should feel</span>
-   <h2 id="feel-h">Cool, clean, and actually made for bare heads.</h2>
-   <p>We're aiming for a wipe that feels cooling and refreshing, leaves less shine, and doesn't leave anything sticky behind. It's made for the scalp, not borrowed from the baby aisle.</p>
-   <p class="scent">Our planned signature scent direction is cedarwood, vetiver and petitgrain. Warm, woody, a little bright, and never overpowering.</p>
+   <blockquote>“Like a cold splash of water. <span>Except you're still at your desk.”</span></blockquote>
+   <span class="kicker mono">How they should feel</span>
+   <h2 id="feel-h">Cool, clean, and made for bare heads.</h2>
+   <p class="intro">We're aiming for a wipe that feels cooling and refreshing, leaves less shine, and doesn't leave anything sticky behind. It's made for the scalp, not borrowed from the baby aisle.</p>
+  </div>
+  <div class="label" role="group" aria-label="Product spec label">
+   <div class="hd"><span>Good Head Club</span><span>Spec sheet · Draft</span></div>
+   <div class="ttl"><b>Head Wipe Nº 01</b><span class="hand">for bald &amp; shaved heads</span></div>
+   <dl>
+    <dt>Use</dt><dd>Scalp first. Shine, sweat, on-the-go refresh</dd>
+    <dt>Feel</dt><dd>Cooling, clean, matte, not sticky</dd>
+    <dt>Rinse</dt><dd>None needed</dd>
+    <dt>Scent</dt><dd>Planned: cedarwood, vetiver, petitgrain. Warm, woody, a little bright, never overpowering</dd>
+    <dt>Formula</dt><dd>Being finalized. Full ingredient list published once confirmed</dd>
+    <dt>Price</dt><dd>Not set yet</dd>
+    <dt>Launch</dt><dd>No date yet</dd>
+   </dl>
+   <div class="ft">Status: in development. Details subject to change.</div>
   </div>
  </div>
 </section>
 
-<section aria-labelledby="faq-h" style="padding-top:0">
- <div class="wrap">
-  <span class="kicker">FAQ</span>
-  <h2 id="faq-h">Fair questions.</h2>
+<section aria-labelledby="faq-h">
+ <div class="wrap split">
+  <div><span class="kicker mono">FAQ</span><h2 id="faq-h">Fair questions.</h2></div>
   <div class="faq">
    <details><summary>When can I buy them?</summary><p>We don't have a launch date yet. The wipes are still in development, and we'd rather get them right than rush. Join the waitlist and you'll be the first to know.</p></details>
    <details><summary>What's in them?</summary><p>We're still finalizing the formula, so we're not listing ingredients until they're confirmed. When we do, we'll publish the full list.</p></details>
@@ -167,28 +278,29 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
  </div>
 </section>
 
-<div class="later"><div class="wrap"><strong>Later from the club:</strong> shave soap, deodorant, scalp sunscreen &amp; balm.</div></div>
+<div class="later"><div class="wrap"><p><strong>Later from the club:</strong> shave soap, deodorant, scalp sunscreen &amp; balm.</p></div></div>
 
-<section id="join" aria-labelledby="join-h" style="padding-top:0">
- <div class="final">
+<section id="join" class="final" aria-labelledby="join-h">
+ <div class="wrap">
+  <span class="kicker mono">The waitlist</span>
   <h2 id="join-h">Get on the wipes waitlist.</h2>
   <p>One email when they're ready. That's the deal.</p>
   <div class="signup-block">
   <!-- EMAIL PROVIDER HOOKUP: same as the hero form above. -->
   <form class="signup" action="#" method="post" data-demo="true" novalidate>
-   <label for="email2" class="skip">Email address</label>
+   <label for="email2" class="sr">Email address</label>
    <input id="email2" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
    <button type="submit">Count me in</button>
   </form>
-  <div class="thanks" role="status" aria-live="polite" tabindex="-1"><strong>You're on the list.</strong> Thanks! We'll let you know when the wipes are ready.</div>
+  <div class="thanks" role="status" aria-live="polite" tabindex="-1"><strong>You're on the list.</strong> Thanks. We'll let you know when the wipes are ready.</div>
   </div>
  </div>
 </section>
 </main>
 <footer>
  <div class="wrap">
-  <span>© <span id="yr">2026</span> Good Head Club. All rights reserved.</span>
-  <span>goodheadclub.com</span>
+  <span class="logo">Good Head Club</span>
+  <span>© <span id="yr">2026</span> Good Head Club. All rights reserved. · goodheadclub.com</span>
  </div>
 </footer>
 <script>
@@ -197,6 +309,7 @@ document.querySelectorAll('form.signup').forEach(function(f){
  f.addEventListener('submit',function(e){
   var i=f.querySelector('input[type=email]');
   if(!i.checkValidity()){e.preventDefault();i.setAttribute('aria-invalid','true');i.focus();i.reportValidity();return;}
+  i.removeAttribute('aria-invalid');
   if(f.dataset.demo!=='true')return; // real provider: let it submit
   e.preventDefault(); // demo mode: nothing is sent anywhere
   var t=f.parentNode.querySelector('.thanks');
