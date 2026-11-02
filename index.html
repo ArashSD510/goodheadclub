@@ -606,9 +606,10 @@ q('[data-v-input]').forEach(function(e){e.value=k});q('[data-event="add_to_cart"
 q('input[name="pack"][type="radio"]').forEach(function(r){r.addEventListener('change',function(){if(r.checked)set(r.value)})});
 var cars=[];q('.car').forEach(function(c){var w=c.parentNode,tr=c.querySelector('.track'),sl=c.querySelectorAll('.slide'),dots=w.querySelectorAll('.car-dots i'),pv=w.querySelector('.car-a.prev'),nx=w.querySelector('.car-a.next'),o={cur:0};
  function idx(){return tr.clientWidth?Math.round(tr.scrollLeft/tr.clientWidth):0}
- function ui(){o.cur=idx();if(tr.offsetParent!==null||!tr.clientWidth){var fg=document.querySelector('[data-fig]');if(fg&&(tr.offsetParent!==null))fg.textContent='0'+(o.cur+1)}dots.forEach(function(d,i){d.classList.toggle('on',i===o.cur)});pv.disabled=o.cur<=0;nx.disabled=o.cur>=sl.length-1}
- function go(i,inst){i=Math.max(0,Math.min(sl.length-1,i));if(inst)tr.style.scrollBehavior='auto';tr.scrollLeft=i*tr.clientWidth;if(inst)tr.style.scrollBehavior='';ui()}
+ function ui(){o.cur=idx();if(tr.offsetParent!==null||!tr.clientWidth){var fg=document.querySelector('[data-fig]');if(fg&&(tr.offsetParent!==null))fg.textContent='0'+(o.cur+1)}dots.forEach(function(d,i){d.classList.toggle('on',i===o.cur)});pv.disabled=nx.disabled=false}
+ function go(i,inst){var n=sl.length;i=((i%n)+n)%n;if(inst)tr.style.scrollBehavior='auto';tr.scrollLeft=i*tr.clientWidth;if(inst)tr.style.scrollBehavior='';ui()}
  o.go=go;tr.addEventListener('scroll',function(){clearTimeout(o.t);o.t=setTimeout(ui,60)},{passive:true});
+ var sx=null,cs=0;tr.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;cs=idx()},{passive:true});tr.addEventListener('touchend',function(e){if(sx===null)return;var dx=e.changedTouches[0].clientX-sx,n=sl.length;sx=null;if(n<2)return;if(cs===n-1&&dx<-40)setTimeout(function(){go(0)},80);else if(cs===0&&dx>40)setTimeout(function(){go(n-1)},80)},{passive:true});
  pv.addEventListener('click',function(){go(o.cur-1)});nx.addEventListener('click',function(){go(o.cur+1)});
  c.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();go(o.cur+1)}else if(e.key==='ArrowLeft'){e.preventDefault();go(o.cur-1)}});
  if(sl.length<2){pv.hidden=nx.hidden=true;w.querySelector('.car-dots').hidden=true}
