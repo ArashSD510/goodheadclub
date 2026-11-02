@@ -165,6 +165,7 @@ body.noscroll{overflow:hidden}
  body{padding-bottom:0}
  .sticky-atc{display:block;position:fixed;left:0;right:0;bottom:calc(16px + env(safe-area-inset-bottom));z-index:15;height:60px;background:none;border:0;padding:0;margin:0;visibility:hidden;pointer-events:none}
  .ios .sticky-atc{bottom:calc(76px + env(safe-area-inset-bottom))}
+ .sticky-atc::before{content:'';position:absolute;left:0;right:0;top:-12px;bottom:-240px;background:var(--paper);pointer-events:none}
  .sticky-atc.show{visibility:visible}
  body.noscroll .sticky-atc{visibility:hidden}
  .sticky-atc .s-name{display:none}
