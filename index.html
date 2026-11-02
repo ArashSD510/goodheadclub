@@ -269,7 +269,7 @@ footer .logo{color:var(--paper);font-size:.8rem}
 <div class="bar mono">Free shipping on every order</div>
 <header class="top">
  <div class="nav">
-  <a class="logo" href="#" aria-label="Good Head Club home"><img src="wordmark.svg" alt="Good Head Club" width="173" height="22" style="height:22px;width:auto;display:block"></a>
+  <span class="logo"><img src="wordmark.svg" alt="Good Head Club" width="173" height="22" style="height:22px;width:auto;display:block"></span>
   <a class="cta mono" href="#product">Shop Nº 01</a>
  </div>
 </header>
@@ -629,7 +629,7 @@ document.addEventListener('DOMContentLoaded',function(){
  window.ghcModalOut=function(cb){var mob=matchMedia('(max-width:560px)').matches;g.to(m.querySelector('.modal-bg'),{opacity:0,duration:.3});
   g.to(m.querySelector('.modal-box'),mob?{yPercent:100,duration:.35,ease:'power2.in'}:{opacity:0,y:16,duration:.3,ease:'power2.in',onComplete:function(){}}).eventCallback('onComplete',function(){g.set(m.querySelectorAll('.modal-bg,.modal-box'),{clearProps:'all'});cb()})};
  // hover micro
- if(matchMedia('(hover:hover)').matches)$('button:not(.flip):not(.modal-x),.nav a.cta').forEach(function(b){
+ if(matchMedia('(hover:hover)').matches)$('button:not(.flip):not(.modal-x):not(form.signup button),.nav a.cta').forEach(function(b){
   b.addEventListener('mouseenter',function(){g.to(b,{y:-2,duration:.3,ease:E})});
   b.addEventListener('mouseleave',function(){g.to(b,{y:0,duration:.4,ease:E})})});
  }catch(err){done();console.warn(err)}
