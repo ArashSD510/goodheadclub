@@ -605,18 +605,30 @@ function set(k){var v=V[k];document.documentElement.classList.toggle('tin',k==='
 q('[data-v-input]').forEach(function(e){e.value=k});q('[data-event="add_to_cart"]').forEach(function(b){b.setAttribute('data-variant',k)});q('input[name="pack"][type="radio"]').forEach(function(r){r.checked=r.value===k});if(window.ghcCarReset)window.ghcCarReset()}
 q('input[name="pack"][type="radio"]').forEach(function(r){r.addEventListener('change',function(){if(r.checked)set(r.value)})});
 var cars=[];q('.car').forEach(function(c){var w=c.parentNode,tr=c.querySelector('.track'),sl=c.querySelectorAll('.slide'),dots=w.querySelectorAll('.car-dots i'),pv=w.querySelector('.car-a.prev'),nx=w.querySelector('.car-a.next'),o={cur:0};
- function idx(){return tr.clientWidth?Math.round(tr.scrollLeft/tr.clientWidth):0}
- function ui(){o.cur=idx();if(tr.offsetParent!==null||!tr.clientWidth){var fg=document.querySelector('[data-fig]');if(fg&&(tr.offsetParent!==null))fg.textContent='0'+(o.cur+1)}dots.forEach(function(d,i){d.classList.toggle('on',i===o.cur)});pv.disabled=nx.disabled=false}
- function go(i,inst){var n=sl.length;i=((i%n)+n)%n;if(inst)tr.style.scrollBehavior='auto';tr.scrollLeft=i*tr.clientWidth;if(inst)tr.style.scrollBehavior='';ui()}
- o.go=go;tr.addEventListener('scroll',function(){clearTimeout(o.t);o.t=setTimeout(ui,60)},{passive:true});
- var sx=null,cs=0;tr.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;cs=idx()},{passive:true});tr.addEventListener('touchend',function(e){if(sx===null)return;var dx=e.changedTouches[0].clientX-sx,n=sl.length;sx=null;if(n<2)return;if(cs===n-1&&dx<-40)setTimeout(function(){go(0)},80);else if(cs===0&&dx>40)setTimeout(function(){go(n-1)},80)},{passive:true});
- pv.addEventListener('click',function(){go(o.cur-1)});nx.addEventListener('click',function(){go(o.cur+1)});
- c.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();go(o.cur+1)}else if(e.key==='ArrowLeft'){e.preventDefault();go(o.cur-1)}});
- if(sl.length<2){pv.hidden=nx.hidden=true;w.querySelector('.car-dots').hidden=true}
+ var n=sl.length;
+ if(n>1){var cl=function(el){var k=el.cloneNode(true);k.classList.add('clone');k.setAttribute('aria-hidden','true');k.setAttribute('inert','');k.removeAttribute('aria-label');k.querySelectorAll('[id]').forEach(function(x){x.removeAttribute('id')});k.querySelectorAll('img').forEach(function(m){m.setAttribute('loading','lazy');m.removeAttribute('fetchpriority')});return k};
+  tr.insertBefore(cl(sl[n-1]),sl[0]);tr.appendChild(cl(sl[0]))}
+ var off=n>1?1:0;
+ function W(){return tr.clientWidth}
+ function pos(){return W()?Math.round(tr.scrollLeft/W()):off}
+ function jump(p){tr.style.scrollBehavior='auto';tr.scrollLeft=p*W();void tr.scrollLeft;tr.style.scrollBehavior=''}
+ function ui(){var fg=document.querySelector('[data-fig]');if(fg&&tr.offsetParent!==null)fg.textContent='0'+(o.cur+1);dots.forEach(function(d,i){d.classList.toggle('on',i===o.cur)});pv.disabled=nx.disabled=false}
+ function settle(){if(!W())return;var p=pos();if(off){if(p<=0){jump(n);p=n}else if(p>=n+1){jump(1);p=1}}o.cur=o.tgt=p-off;ui()}
+ function go(i,inst){i=((i%n)+n)%n;o.cur=o.tgt=i;if(W())jump(i+off);ui()}
+ function step(d){if(!W())return go(o.cur+d,true);var t=o.tgt+d;
+  if(off&&(t>n||t<-1)){var s=t>n?-n:n;tr.style.scrollBehavior='auto';tr.scrollLeft+=s*W();void tr.scrollLeft;tr.style.scrollBehavior='';t+=s}
+  o.tgt=t;tr.scrollLeft=(t+off)*W();o.cur=((t%n)+n)%n;ui()}
+ o.go=go;o.home=function(){jump(o.cur+off)};
+ tr.addEventListener('scroll',function(){clearTimeout(o.t);o.t=setTimeout(settle,150)},{passive:true});
+ if('onscrollend' in window)tr.addEventListener('scrollend',function(){clearTimeout(o.t);settle()});
+ pv.addEventListener('click',function(){step(-1)});nx.addEventListener('click',function(){step(1)});
+ c.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();step(1)}else if(e.key==='ArrowLeft'){e.preventDefault();step(-1)}});
+ if(n<2){pv.hidden=nx.hidden=true;w.querySelector('.car-dots').hidden=true}
+ o.cur=o.tgt=0;jump(off);
  addEventListener('resize',function(){go(o.cur,true)});ui();o.w=w;cars.push(o)});
 window.ghcCarReset=function(){cars.forEach(function(o){o.go(0,true)})};
-if(/[?&]open\b/.test(location.search)&&cars[1])cars[1].go(1,true);
-set(document.documentElement.classList.contains('tin')?'tin':'pouch')})();
+set(document.documentElement.classList.contains('tin')?'tin':'pouch');
+if(/[?&]open\b/.test(location.search)&&cars[1])cars[1].go(1,true)})();
 </script>
 </body>
 </html>
