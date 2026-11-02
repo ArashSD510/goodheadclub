@@ -518,6 +518,15 @@ footer .logo{color:var(--paper);font-size:.8rem}
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
 var GHC_URL='https://script.google.com/macros/s/AKfycbxT_SbBfVuhBg3P2Xt1V3DXDeR_TYYd_UIOsli5hxy-u3IACyQ0os1s1XNccVrlI0CUkA/exec';
+(function(){var ok=/goodheadclub\.com$/.test(location.hostname)&&!navigator.webdriver&&!/[?&]notrack\b/.test(location.search);
+ var vid;try{vid=localStorage.getItem('ghc_vid');if(!vid){vid=Math.random().toString(36).slice(2)+Date.now().toString(36);localStorage.setItem('ghc_vid',vid)}}catch(e){vid='na'}
+ function pack(){return document.documentElement.classList.contains('tin')?'tin':'pouch'}
+ function send(ev){if(!ok)return;var b=new URLSearchParams({type:'event',event:ev,pack:pack(),sid:vid,device:matchMedia('(max-width:900px)').matches?'mobile':'desktop',ref:document.referrer||'',page:location.href});
+  try{if(navigator.sendBeacon&&navigator.sendBeacon(GHC_URL,b))return}catch(e){}try{fetch(GHC_URL,{method:'POST',mode:'no-cors',body:b,keepalive:true})}catch(e){}}
+ window.ghcTrack=send;
+ try{if(!sessionStorage.getItem('ghc_v')){sessionStorage.setItem('ghc_v','1');send('visit')}}catch(e){send('visit')}
+ document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('[data-event="add_to_cart"]');if(t)send('add_to_cart')},true);
+})();
 document.querySelectorAll('form.signup').forEach(function(f){
  f.addEventListener('submit',function(e){
   e.preventDefault();
