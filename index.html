@@ -140,7 +140,7 @@ html.tin [data-only="pouch"],html:not(.tin) [data-only="tin"]{display:none}
 .pouch-view{position:absolute;inset:0;z-index:1}.packet-stage .cap{z-index:2}html.tin .pouch-view{display:none}
 .packet-stage>.flip,.packet-stage>.flip-hint{display:none!important}
 .pslide{display:grid;place-items:center}.pslide svg{display:block;height:78%;width:auto;aspect-ratio:280/360;filter:drop-shadow(0 30px 28px rgba(40,30,15,.22))}
-.pouch-view .car-a{color:var(--ink)}.pouch-view .car-a svg{filter:none}.pouch-view .car-dots i{background:var(--ink)}
+
 html.tin .packet-stage .flip,html.tin .flip-hint,html.tin .packet-stage .fb{display:none}
 html.tin .packet-stage .cap{z-index:2;color:var(--paper);text-shadow:0 1px 2px rgba(0,0,0,.4)}
 .packet-stage{overflow:hidden}
@@ -175,7 +175,7 @@ body.noscroll{overflow:hidden}
 @media(max-width:560px){
  .bar{padding:7px 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.62rem}
  .nav{padding-top:14px;padding-bottom:14px}.nav a.cta{display:inline-flex;align-items:center;min-height:44px;border:0;text-decoration:underline;text-underline-offset:4px}
- section.hero{padding:0 0 56px}.hero .wrap{gap:28px}.hero .packet-stage{margin:0 -20px;aspect-ratio:3/2}
+ section.hero{padding:0 0 56px}.hero .wrap{gap:28px}.hero .packet-stage{margin:0 -20px;aspect-ratio:3/2}.pouch-view .slide img{object-position:50% 40%}
  .flip{width:58%}
  .eyebrow{margin-bottom:14px}.pdp-sub{margin-bottom:18px;font-size:1.35rem}.pdp-pack{margin-bottom:16px}.lead.sm{margin-bottom:18px}
  .pdp-meta{margin-bottom:20px}.benefits{margin-bottom:22px}
@@ -364,56 +364,8 @@ footer .logo{color:var(--paper);font-size:.8rem}
    <div class="pouch-view">
     <div class="car" role="region" aria-roledescription="carousel" aria-label="Travel pack images" tabindex="0">
      <div class="track">
-      <div class="slide pslide" role="img" aria-roledescription="slide" aria-label="1 of 2: travel pack front, spec-sheet label reading Head Wipe Nº 01, 15 wipes, two-week supply"><svg viewBox="0 0 280 360" aria-hidden="true" focusable="false"><!-- FRONT of pack -->
-     <path d="M16 10Q10 10 10 20V340Q10 350 16 350H264Q270 350 270 340V20Q270 10 264 10Z" fill="url(#foil)"/>
-     <rect x="10" y="10" width="260" height="20" fill="url(#crimp)"/>
-     <rect x="10" y="330" width="260" height="20" fill="url(#crimp)"/>
-     <path d="M10 54l9 5l-9 5Z" fill="#c9c2b4"/>
-     <line x1="24" y1="59" x2="256" y2="59" stroke="#8d877d" stroke-width=".6" stroke-dasharray="3 3" opacity=".45"/>
-     <rect x="10" y="10" width="130" height="340" fill="url(#sheen)"/>
-     <g>
-<rect x="44" y="72" width="192" height="214" fill="#fbf9f3" stroke="#111" stroke-width="1"/>
-<text x="54" y="86.4" font-family="IBM Plex Mono,Courier New,monospace" font-size="6.6" letter-spacing="1.1" fill="#111">GOOD HEAD CLUB</text>
-<text x="226" y="86.4" font-family="IBM Plex Mono,Courier New,monospace" font-size="6.6" letter-spacing="1.1" fill="#111" text-anchor="end">TRAVEL PACK</text>
-<line x1="44" y1="96" x2="236" y2="96" stroke="#111" stroke-width=".8"/>
-<text x="54" y="117.86" font-family="Archivo,Arial,sans-serif" font-weight="800" font-size="13.5" letter-spacing="1.62" fill="#111">HEAD WIPE Nº 01</text>
-<line x1="44" y1="130" x2="236" y2="130" stroke="#111" stroke-width=".8" stroke-dasharray="2 1.6"/>
-<text x="54" y="142.29" font-family="IBM Plex Mono,Courier New,monospace" font-size="6.3" letter-spacing=".7" fill="#5c5850">PACK</text>
-<text x="101" y="142.29" font-family="IBM Plex Mono,Courier New,monospace" font-size="7.4" fill="#111">15 wipes ·</text>
-<text x="101" y="152.28" font-family="IBM Plex Mono,Courier New,monospace" font-size="7.4" fill="#111">two-week supply</text>
-<line x1="94" y1="130" x2="94" y2="178.67000000000002" stroke="#d6cfc1" stroke-width=".8"/>
-<line x1="44" y1="178.67000000000002" x2="236" y2="178.67000000000002" stroke="#d6cfc1" stroke-width=".8"/>
-<text x="54" y="190.96" font-family="IBM Plex Mono,Courier New,monospace" font-size="6.3" letter-spacing=".7" fill="#5c5850">SCENT</text>
-<text x="101" y="190.96" font-family="IBM Plex Mono,Courier New,monospace" font-size="7.4" fill="#111">Cedarwood · vetiver</text>
-<text x="101" y="200.95000000000002" font-family="IBM Plex Mono,Courier New,monospace" font-size="7.4" fill="#111">· petitgrain</text>
-<line x1="94" y1="178.67000000000002" x2="94" y2="227.34000000000003" stroke="#d6cfc1" stroke-width=".8"/>
-<line x1="44" y1="227.34000000000003" x2="236" y2="227.34000000000003" stroke="#d6cfc1" stroke-width=".8"/>
-<text x="54" y="239.63000000000002" font-family="IBM Plex Mono,Courier New,monospace" font-size="6.3" letter-spacing=".7" fill="#5c5850">FORMULA</text>
-<text x="101" y="239.63000000000002" font-family="IBM Plex Mono,Courier New,monospace" font-size="7.4" fill="#111">Aloe · niacinamide</text>
-<text x="101" y="249.62000000000003" font-family="IBM Plex Mono,Courier New,monospace" font-size="7.4" fill="#111">· glycerin · panthenol</text>
-<text x="101" y="259.61" font-family="IBM Plex Mono,Courier New,monospace" font-size="7.4" fill="#111">· vitamin E</text>
-<line x1="94" y1="227.34000000000003" x2="94" y2="286.00000000000006" stroke="#d6cfc1" stroke-width=".8"/>
-</g>
-     <text x="140" y="314" font-family="IBM Plex Mono,Courier New,monospace" font-size="6.5" letter-spacing="1.4" fill="#8d877d" text-anchor="middle">FRONT · RESEALABLE ON BACK</text>
-    </svg></div>
-      <div class="slide pslide" role="img" aria-roledescription="slide" aria-label="2 of 2: travel pack back, tear notch and press-to-seal zip"><svg viewBox="0 0 280 360" aria-hidden="true" focusable="false"><!-- BACK of pack: stand-up pouch, tear notch + press-to-close zip -->
-     <path d="M16 10Q10 10 10 20V340Q10 350 16 350H264Q270 350 270 340V20Q270 10 264 10Z" fill="url(#foil)"/>
-     <rect x="10" y="10" width="260" height="20" fill="url(#crimp)"/>
-     <rect x="10" y="330" width="260" height="20" fill="url(#crimp)"/>
-     <path d="M270 54l-9 5l9 5Z" fill="#c9c2b4"/>
-     <line x1="24" y1="59" x2="256" y2="59" stroke="#8d877d" stroke-width=".8" stroke-dasharray="3 3"/>
-     <text x="140" y="72" font-family="IBM Plex Mono,Courier New,monospace" font-size="6.5" letter-spacing="1.5" fill="#8d877d" text-anchor="middle">TEAR HERE</text>
-     <rect x="10" y="82" width="260" height="9" fill="#0c0b0b"/>
-     <line x1="10" y1="82" x2="270" y2="82" stroke="#4a4642" stroke-width="1"/>
-     <line x1="10" y1="91" x2="270" y2="91" stroke="#4a4642" stroke-width="1"/>
-     <line x1="10" y1="86.5" x2="270" y2="86.5" stroke="#6c6760" stroke-width="1.6" stroke-dasharray="1.6 1.4"/>
-     <text x="140" y="104" font-family="IBM Plex Mono,Courier New,monospace" font-size="6.5" letter-spacing="1.5" fill="#8d877d" text-anchor="middle">PRESS TO SEAL</text>
-     <use href="#wm-d" x="60" y="168" width="160" height="20.4"/>
-     <line x1="110" y1="210" x2="170" y2="210" stroke="#8d877d" stroke-width=".7"/>
-     <text x="140" y="234" font-family="IBM Plex Mono,Courier New,monospace" font-size="9" letter-spacing="1" fill="#f6f3ec" text-anchor="middle">Tear. Zip. Done.</text>
-     <text x="140" y="312" font-family="IBM Plex Mono,Courier New,monospace" font-size="6" letter-spacing="1.2" fill="#8d877d" text-anchor="middle">RESEALABLE ZIP POUCH</text>
-     <rect x="10" y="10" width="130" height="340" fill="url(#sheen)"/>
-    </svg></div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="1 of 2"><img src="pouch-closed.jpg" alt="Good Head Club Head Wipes Nº 01 travel pack pouch, sealed" width="1200" height="1200" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 2"><img src="pouch-open.jpg" alt="Good Head Club travel pack torn open with a wipe coming out" width="1200" height="1200" loading="lazy" decoding="async" draggable="false"></div>
      </div>
     </div>
     <button type="button" class="car-a prev" aria-label="Previous photo"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M15 4L7 12l8 8" fill="none" stroke="currentColor" stroke-width="1"/></svg></button>
