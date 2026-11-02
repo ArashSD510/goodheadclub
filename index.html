@@ -114,6 +114,9 @@ button.atc,.sticky-atc button{background:var(--ink);color:var(--paper);font-fami
 .car-dots i{display:block;width:16px;height:1px;background:var(--paper);opacity:.4;transition:opacity .2s}
 .car-dots i.on{opacity:1}
 html.tin .tin-view{display:block}
+html.tin [data-only="pouch"],html:not(.tin) [data-only="tin"]{display:none}
+[data-only]{animation:ofade .35s ease}@keyframes ofade{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){[data-only]{animation:none}}
 .pouch-view{position:absolute;inset:0;z-index:1}.packet-stage .cap{z-index:2}html.tin .pouch-view{display:none}
 .packet-stage>.flip,.packet-stage>.flip-hint{display:none!important}
 .pslide{display:grid;place-items:center}.pslide svg{display:block;height:78%;width:auto;aspect-ratio:280/360;filter:drop-shadow(0 30px 28px rgba(40,30,15,.22))}
@@ -259,7 +262,7 @@ footer .logo{color:var(--paper);font-size:.8rem}
      <label class="opt"><input type="radio" name="pack" value="pouch"><span><b>Travel pack</b><small class="mono">15 wipes · two weeks · $16</small></span></label>
     </div>
    </fieldset>
-   <p class="lead sm">A cooling wipe for the scalp. Lifts shine, sweat and sunscreen wherever you are: after the gym, on the commute, before a meeting.</p>
+   <p class="lead sm">A cooling wipe for the scalp. Lifts shine, sweat and sunscreen wherever you are: after the gym, on the commute, before a meeting. <span data-only="tin">A month's worth for the bathroom shelf or gym bag.</span><span data-only="pouch">Slim enough for a pocket or carry-on.</span></p>
    <button type="button" class="atc" data-event="add_to_cart" aria-haspopup="dialog" aria-controls="soldout"><span data-v-atc>Add to cart · $29</span></button>
   </div>
   <div class="packet-stage">
@@ -385,7 +388,7 @@ footer .logo{color:var(--paper);font-size:.8rem}
   <span class="kicker mono">How they work</span>
   <h2 id="how-h">Open. Wipe. Done.</h2>
   <ol class="steps">
-   <li><span class="big" aria-hidden="true">i.</span><h3>Pull one out</h3><p>Open the tin (or tear the pouch notch), pull a wipe, close it to keep the rest fresh.</p></li>
+   <li><span class="big" aria-hidden="true">i.</span><h3><span data-only="tin">Open the tin</span><span data-only="pouch">Tear the notch</span></h3><p><span data-only="tin">Lift the lid, pull a wipe, close it to keep the rest fresh.</span><span data-only="pouch">Tear along the top, pull a wipe, press the zip closed to keep the rest fresh.</span></p></li>
    <li><span class="big" aria-hidden="true">ii.</span><h3>Front to back</h3><p>One easy pass over the scalp, then around the ears and the back of the neck.</p></li>
    <li><span class="big" aria-hidden="true">iii.</span><h3>Get on with your day</h3><p>Nothing to rinse.</p></li>
   </ol>
@@ -402,7 +405,7 @@ footer .logo{color:var(--paper);font-size:.8rem}
    <div class="hd"><span>Good Head Club</span><span>Spec sheet</span></div>
    <div class="ttl"><b>Head Wipe Nº 01</b></div>
    <dl>
-    <dt>Pack</dt><dd>Tin, or pouch with a tear notch and press-to-close zip</dd>
+    <dt>Pack</dt><dd><span data-only="tin">30 wipes · one-month supply · tin</span><span data-only="pouch">15 wipes · two-week supply · resealable zip pouch</span></dd>
     <dt>Scent</dt><dd>Cedarwood, vetiver &amp; petitgrain essential oils. Warm, woody, a little bright</dd>
     <dt>Formula</dt><dd>Aloe vera, niacinamide, glycerin, panthenol, vitamin E. A little alcohol, so they dry fast. No parabens, no synthetic scents</dd>
    </dl>
