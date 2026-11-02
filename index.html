@@ -239,6 +239,11 @@ h2{font-size:clamp(2.2rem,4.6vw,3.6rem);max-width:18ch}
 .final p{color:var(--muted);margin:0 0 36px}
 .final form.signup,.final .thanks{margin:0 auto;text-align:left}
 footer{background:var(--ink);color:#bdb6a8;padding:40px 0;font-size:.85rem}
+.final.dark h2{color:var(--paper)}.final.dark form.signup input{border-color:var(--paper)}
+.final.dark button.su{background:var(--paper);color:var(--ink);border:1px solid var(--paper)}
+.final.dark button.su:hover,.final.dark button.su:active{background:transparent;color:var(--paper);border-color:var(--paper)}
+.final.dark .thanks{color:var(--ink)}
+footer{border-top:1px solid #ffffff22}
 footer .wrap{display:flex;justify-content:center;text-align:center;gap:16px;flex-wrap:wrap}
 footer .logo{color:var(--paper);font-size:.8rem}
 @media (max-width:900px){
@@ -473,7 +478,7 @@ footer .logo{color:var(--paper);font-size:.8rem}
  </div>
 </section>
 
-<section id="join" class="final" aria-labelledby="join-h">
+<section id="join" class="final dark" aria-labelledby="join-h">
  <div class="wrap">
   <h2 id="join-h">Want good head? <em>Get on the list.</em></h2>
   <div class="signup-block">
