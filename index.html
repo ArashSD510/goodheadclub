@@ -85,6 +85,7 @@ button:not(.flip):hover{background:var(--rust)}
 button.atc{display:block;width:100%;max-width:500px;height:60px;margin-left:auto;margin-right:auto}
 button.atc,.sticky-atc button{background:var(--ink);color:var(--paper);font-family:var(--sans);font-weight:700;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;border-radius:0}
 @media(min-width:901px){.hero button.atc{margin-left:0}}
+.final button.su{background:var(--ink);color:var(--paper);font-family:var(--sans);font-weight:700;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;border-radius:0}
 /* pack option */
 .opts{border:0;margin:0 0 26px;padding:0;max-width:500px}
 .opts legend{padding:0;margin:0 0 10px;color:var(--muted)}
@@ -101,7 +102,7 @@ button.atc,.sticky-atc button{background:var(--ink);color:var(--paper);font-fami
 .track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-x:contain}
 .track::-webkit-scrollbar{display:none}
 .slide{flex:0 0 100%;height:100%;scroll-snap-align:start}
-.slide img{display:block;width:100%;height:100%;object-fit:cover;user-select:none}
+.slide img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;user-select:none}
 .car:focus-visible{outline:1px solid var(--paper);outline-offset:-6px}
 .car-a{all:unset;position:absolute;top:calc(50% - 22px);width:44px;height:44px;display:grid;place-items:center;color:var(--paper);opacity:.75;cursor:pointer;z-index:3;transition:opacity .2s}
 .car-a:hover{opacity:1}.car-a:focus-visible{outline:1px solid var(--paper);opacity:1}
@@ -210,7 +211,7 @@ h2{font-size:clamp(2.2rem,4.6vw,3.6rem);max-width:18ch}
 .later strong{color:var(--rust);font-weight:500}
 /* final */
 .final{text-align:center;padding:128px 0}
-.final h2{margin:0 auto .3em;max-width:none}
+.final h2{margin:0 auto 32px;max-width:none}
 .final p{color:var(--muted);margin:0 0 36px}
 .final form.signup,.final .thanks{margin:0 auto;text-align:left}
 footer{background:var(--ink);color:#bdb6a8;padding:40px 0;font-size:.85rem}
@@ -366,15 +367,15 @@ footer .logo{color:var(--paper);font-size:.8rem}
    <div class="tin-view">
     <div class="car" role="region" aria-roledescription="carousel" aria-label="Tin photos" tabindex="0">
      <div class="track">
-      <div class="slide" role="group" aria-roledescription="slide" aria-label="1 of 2"><img src="tin-closed.jpg" alt="Good Head Club Head Wipes Nº 01 tin, closed" width="1152" height="864" decoding="async" draggable="false"></div>
-      <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 2"><img src="tin-open.jpg" alt="Good Head Club Head Wipes Nº 01 tin, open with wipes inside" width="1152" height="864" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="1 of 2"><img src="tin-closed.jpg" alt="Good Head Club Head Wipes Nº 01 tin, closed" width="1200" height="1200" decoding="async" draggable="false"></div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 2"><img src="tin-open.jpg" alt="Good Head Club Head Wipes Nº 01 tin, open with wipes inside" width="1200" height="1200" loading="lazy" decoding="async" draggable="false"></div>
      </div>
     </div>
     <button type="button" class="car-a prev" aria-label="Previous photo"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M15 4L7 12l8 8" fill="none" stroke="currentColor" stroke-width="1"/></svg></button>
     <button type="button" class="car-a next" aria-label="Next photo"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M9 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="1"/></svg></button>
     <div class="car-dots" aria-hidden="true"><i class="on"></i><i></i></div>
    </div>
-   <span class="cap mono">Fig. 01<span class="fb"> · Front &amp; back</span></span>
+   <span class="cap mono" aria-live="polite">Fig. <span data-fig>01</span></span>
   </div>
  </div>
 </section>
@@ -423,15 +424,12 @@ footer .logo{color:var(--paper);font-size:.8rem}
 
 <section id="join" class="final" aria-labelledby="join-h">
  <div class="wrap">
-  <span class="kicker mono">Restock notice</span>
   <h2 id="join-h">Want good head? <em>Get on the list.</em></h2>
-  <p>One email when Nº 01 is back. That's the deal.</p>
   <div class="signup-block">
-  <!-- EMAIL PROVIDER HOOKUP: same as the hero form above. -->
   <form class="signup" action="#" method="post" data-demo="true" novalidate>
    <label for="email2" class="sr">Email address</label>
    <input id="email2" type="email" name="email" placeholder="you@example.com" autocomplete="email" inputmode="email" enterkeyhint="send" required>
-   <button type="submit">Notify me</button>
+   <button type="submit" class="su">Sign up</button>
   </form>
   <div class="thanks" role="status" aria-live="polite" tabindex="-1"><strong>You're on the list.</strong> We'll email you when it restocks.</div>
   </div>
@@ -463,7 +461,7 @@ footer .logo{color:var(--paper);font-size:.8rem}
 <footer>
  <div class="wrap">
   <img class="f-logo" src="wordmark-light.svg" alt="Good Head Club" width="173" height="22" style="height:20px;width:auto;display:block">
-  <span>© <span id="yr">2026</span> Good Head Club. All rights reserved. · goodheadclub.com</span>
+  <span>© <span id="yr">2026</span> Good Head Club</span>
  </div>
 </footer>
 <script>
@@ -534,7 +532,7 @@ document.addEventListener('DOMContentLoaded',function(){
  done();
  g.to('.flip',{y:-8,duration:3,ease:'sine.inOut',yoyo:true,repeat:-1,delay:1.4});
  if(window.ScrollTrigger){
-  var t=$('main section:not(.hero) .kicker,main section:not(.hero) h2,main section:not(.hero) .intro,.steps li,.label .hd,.label .ttl,.label dt,.label dd,.faq details,.final p,.final .signup-block');
+  var t=$('main section:not(.hero) .kicker,main section:not(.hero) h2,main section:not(.hero) .intro,.steps li,.label .hd,.label .ttl,.label dt,.label dd,.faq details,.final .signup-block');
   g.set(t,{opacity:0,y:22});
   ScrollTrigger.batch(t,{start:'top 90%',once:true,onEnter:function(b){g.to(b,{opacity:1,y:0,duration:.9,ease:E,stagger:.07,overwrite:true})}});
  }
@@ -570,7 +568,7 @@ q('[data-v-input]').forEach(function(e){e.value=k});q('[data-event="add_to_cart"
 q('input[name="pack"][type="radio"]').forEach(function(r){r.addEventListener('change',function(){if(r.checked)set(r.value)})});
 var cars=[];q('.car').forEach(function(c){var w=c.parentNode,tr=c.querySelector('.track'),sl=c.querySelectorAll('.slide'),dots=w.querySelectorAll('.car-dots i'),pv=w.querySelector('.car-a.prev'),nx=w.querySelector('.car-a.next'),o={cur:0};
  function idx(){return tr.clientWidth?Math.round(tr.scrollLeft/tr.clientWidth):0}
- function ui(){o.cur=idx();dots.forEach(function(d,i){d.classList.toggle('on',i===o.cur)});pv.disabled=o.cur<=0;nx.disabled=o.cur>=sl.length-1}
+ function ui(){o.cur=idx();if(tr.offsetParent!==null||!tr.clientWidth){var fg=document.querySelector('[data-fig]');if(fg&&(tr.offsetParent!==null))fg.textContent='0'+(o.cur+1)}dots.forEach(function(d,i){d.classList.toggle('on',i===o.cur)});pv.disabled=o.cur<=0;nx.disabled=o.cur>=sl.length-1}
  function go(i,inst){i=Math.max(0,Math.min(sl.length-1,i));if(inst)tr.style.scrollBehavior='auto';tr.scrollLeft=i*tr.clientWidth;if(inst)tr.style.scrollBehavior='';ui()}
  o.go=go;tr.addEventListener('scroll',function(){clearTimeout(o.t);o.t=setTimeout(ui,60)},{passive:true});
  pv.addEventListener('click',function(){go(o.cur-1)});nx.addEventListener('click',function(){go(o.cur+1)});
