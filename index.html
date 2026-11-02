@@ -515,7 +515,7 @@ m.querySelectorAll('[data-close]').forEach(function(c){c.addEventListener('click
 document.addEventListener('keydown',function(e){if(!m.classList.contains('open'))return;if(e.key==='Escape'){close();return}
  if(e.key==='Tab'){var v=vis(),a=v[0],z=v[v.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}}});
 if(/[?&]modal\b/.test(location.search))open();
-var bar=document.querySelector('.sticky-atc'),hb=document.querySelector('.hero .atc'),fin=document.getElementById('join');
+var bar=document.querySelector('.sticky-atc'),hb=document.querySelector('.hero .atc'),fin=document.getElementById('join'),price=document.querySelector('.hero .price');
 if(bar&&hb&&fin){var sb=bar.querySelector('button'),inFin=false,mode='',force=/[?&]sticky\b/.test(location.search),raf=0,root=document.documentElement;
  function anim(){return root.classList.contains('ghc-anim')&&window.gsap&&!matchMedia('(prefers-reduced-motion:reduce)').matches}
  function show(m){ // m: 'dock' | 'past' | ''
@@ -534,10 +534,10 @@ if(bar&&hb&&fin){var sb=bar.querySelector('button'),inFin=false,mode='',force=/[
   var m='';
   if(document.body.classList.contains('noscroll')||inFin)m='';
   else if(force||r.bottom<=0)m='past';
-  else if(r.top>br.top+.5)m='dock';
+  else if(r.top>br.top+.5){var pr=price&&price.getBoundingClientRect();m=(pr&&pr.bottom>br.top-12)?'':'dock'}
   show(m)}
  function req(){if(!raf)raf=requestAnimationFrame(tick)}
- addEventListener('scroll',req,{passive:true});addEventListener('resize',req);
+ addEventListener('scroll',req,{passive:true});addEventListener('resize',req);addEventListener('load',req);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(req);if(window.ResizeObserver)new ResizeObserver(req).observe(document.querySelector('.hero')||document.body);
  new MutationObserver(req).observe(document.body,{attributes:true,attributeFilter:['class']});
  if('IntersectionObserver' in window)new IntersectionObserver(function(e){inFin=e[0].isIntersecting;req()}).observe(fin);
  window.ghcStickyTick=tick;tick();}
