@@ -263,6 +263,7 @@ footer .logo{color:var(--paper);font-size:.8rem}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
+<script>(function(){try{var q=location.search;if(/[?&]internal=1\b/.test(q))localStorage.setItem('ghc_internal','1');if(/[?&]internal=0\b/.test(q))localStorage.removeItem('ghc_internal');window.GHC_INTERNAL=localStorage.getItem('ghc_internal')==='1'}catch(e){window.GHC_INTERNAL=false}if(window.GHC_INTERNAL)window['ga-disable-G-G8ZK5LFBQ7']=true})()</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G8ZK5LFBQ7"></script>
 <script>
@@ -474,7 +475,7 @@ footer .logo{color:var(--paper);font-size:.8rem}
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
 var GHC_URL='https://script.google.com/macros/s/AKfycbxT_SbBfVuhBg3P2Xt1V3DXDeR_TYYd_UIOsli5hxy-u3IACyQ0os1s1XNccVrlI0CUkA/exec';
-(function(){var ok=/goodheadclub\.com$/.test(location.hostname)&&!navigator.webdriver&&!/[?&]notrack\b/.test(location.search);
+(function(){var ok=/goodheadclub\.com$/.test(location.hostname)&&!navigator.webdriver&&!/[?&]notrack\b/.test(location.search)&&!window.GHC_INTERNAL;
  var vid;try{vid=localStorage.getItem('ghc_vid');if(!vid){vid=Math.random().toString(36).slice(2)+Date.now().toString(36);localStorage.setItem('ghc_vid',vid)}}catch(e){vid='na'}
  function pack(){return document.documentElement.classList.contains('tin')?'tin':'pouch'}
  function send(ev){if(!ok)return;if(ev==='add_to_cart'&&window.gtag){var t=pack()==='tin';gtag('event','add_to_cart',{currency:'USD',value:t?29:16,items:[{item_id:t?'GHC-01-TIN':'GHC-01-POUCH',item_name:'Head Wipes N\u00ba 01, '+(t?'Tin':'Travel pack'),price:t?29:16,quantity:1}]})}var b=new URLSearchParams({type:'event',event:ev,pack:pack(),sid:vid,device:matchMedia('(max-width:900px)').matches?'mobile':'desktop',ref:document.referrer||'',page:location.href});
