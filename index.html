@@ -155,11 +155,12 @@ body.noscroll{overflow:hidden}
 @media(max-width:900px){
  .hero .packet-stage{order:-1}
  body{padding-bottom:0}
- .sticky-atc{display:flex;align-items:center;justify-content:center;gap:14px;position:fixed;left:0;right:0;bottom:0;z-index:15;background:var(--paper);border-top:1px solid var(--ink);padding:10px 20px calc(10px + env(safe-area-inset-bottom));transform:translateY(110%);transition:transform .25s ease;visibility:hidden}
- .sticky-atc.show{transform:none;visibility:visible}
- body.noscroll .sticky-atc{transform:translateY(110%);visibility:hidden}
+ .sticky-atc{display:block;position:fixed;left:0;right:0;bottom:calc(16px + env(safe-area-inset-bottom));z-index:15;height:60px;background:none;border:0;padding:0;margin:0;visibility:hidden;pointer-events:none}
+ .sticky-atc.show{visibility:visible}
+ body.noscroll .sticky-atc{visibility:hidden}
  .sticky-atc .s-name{display:none}
- .sticky-atc button{height:60px;flex:1 1 auto;width:100%;max-width:500px;margin:0 auto;padding:0 22px}
+ .sticky-atc button.atc{position:absolute;top:0;left:20px;right:20px;width:auto;max-width:none;margin:0;pointer-events:auto}
+ .hero .atc.docked{visibility:hidden}
 }
 @media(max-width:560px){
  .bar{padding:7px 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.62rem}
@@ -171,7 +172,6 @@ body.noscroll{overflow:hidden}
  .cols p,.uses p,.faq details p,.fine,.intro,footer{font-size:1rem}
  .faq details{padding:12px 0}.faq summary{font-size:1.35rem;min-height:48px}
 }
-@media(prefers-reduced-motion:reduce){.sticky-atc{transition:none}}
 @media(max-width:560px){.modal{align-items:flex-end;padding:0}.modal-box{max-width:none;padding:40px 20px 28px;box-shadow:none;border-width:1px 0 0}}
 .packet{width:88%;max-width:480px;filter:drop-shadow(0 30px 28px rgba(40,30,15,.22))}
 /* sections */
@@ -483,7 +483,7 @@ footer .logo{color:var(--paper);font-size:.8rem}
 </main>
 <div class="sticky-atc" aria-label="Add to cart">
  <span class="s-name mono" data-v-sname>Nº 01 · Tin · $29</span>
- <button type="button" data-event="add_to_cart" aria-haspopup="dialog" aria-controls="soldout"><span data-v-atc>Add to cart · $29</span></button>
+ <button type="button" class="atc" data-event="add_to_cart" aria-haspopup="dialog" aria-controls="soldout"><span data-v-atc>Add to cart · $29</span></button>
 </div>
 <div class="modal" id="soldout" role="dialog" aria-modal="true" aria-labelledby="so-h" aria-describedby="so-d" hidden>
  <div class="modal-bg" data-close></div>
@@ -543,12 +543,31 @@ document.addEventListener('keydown',function(e){if(!m.classList.contains('open')
  if(e.key==='Tab'){var v=vis(),a=v[0],z=v[v.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}}});
 if(/[?&]modal\b/.test(location.search))open();
 var bar=document.querySelector('.sticky-atc'),hb=document.querySelector('.hero .atc'),fin=document.getElementById('join');
-if(bar&&hb&&fin){var past=false,inFin=false;if(/[?&]sticky\b/.test(location.search))past=true;
- function upd(){bar.classList.toggle('show',past&&!inFin)}
- if('IntersectionObserver' in window){
-  new IntersectionObserver(function(e){var r=e[0];past=!r.isIntersecting||/[?&]sticky\b/.test(location.search);upd()}).observe(hb);
-  new IntersectionObserver(function(e){inFin=e[0].isIntersecting;upd()}).observe(fin);
- }upd();}
+if(bar&&hb&&fin){var sb=bar.querySelector('button'),inFin=false,mode='',force=/[?&]sticky\b/.test(location.search),raf=0,root=document.documentElement;
+ function anim(){return root.classList.contains('ghc-anim')&&window.gsap&&!matchMedia('(prefers-reduced-motion:reduce)').matches}
+ function show(m){ // m: 'dock' | 'past' | ''
+  var was=mode;if(m===was)return;mode=m;
+  hb.classList.toggle('docked',m==='dock');
+  if(window.gsap)gsap.killTweensOf(bar);
+  if(m==='dock'||(m===''&&was==='dock')||!anim()){ // seamless: same-frame swap, no motion
+   if(window.gsap)gsap.set(bar,{y:0,yPercent:0,autoAlpha:m?1:0});else{bar.style.opacity=m?1:0}
+   bar.classList.toggle('show',!!m);return}
+  bar.classList.add('show');
+  gsap.fromTo(bar,{y:0,yPercent:m?110:0,autoAlpha:m?0:1},{y:0,yPercent:m?0:110,autoAlpha:m?1:0,duration:m?.6:.35,ease:m?'expo.out':'power2.in',onComplete:function(){if(!mode)bar.classList.remove('show')}})}
+ function tick(){raf=0;
+  if(getComputedStyle(bar).display==='none'){show('');return}
+  var r=hb.getBoundingClientRect(),br=bar.getBoundingClientRect();
+  sb.style.left=r.left+'px';sb.style.right='auto';sb.style.width=r.width+'px';
+  var m='';
+  if(document.body.classList.contains('noscroll')||inFin)m='';
+  else if(force||r.bottom<=0)m='past';
+  else if(r.top>br.top+.5)m='dock';
+  show(m)}
+ function req(){if(!raf)raf=requestAnimationFrame(tick)}
+ addEventListener('scroll',req,{passive:true});addEventListener('resize',req);
+ new MutationObserver(req).observe(document.body,{attributes:true,attributeFilter:['class']});
+ if('IntersectionObserver' in window)new IntersectionObserver(function(e){inFin=e[0].isIntersecting;req()}).observe(fin);
+ window.ghcStickyTick=tick;tick();}
 })();
 </script>
 <script>
@@ -585,12 +604,6 @@ document.addEventListener('DOMContentLoaded',function(){
   g.fromTo(m.querySelector('.modal-box'),mob?{yPercent:100}:{opacity:0,y:24},mob?{yPercent:0,duration:.6,ease:X}:{opacity:1,y:0,duration:.6,ease:X})};
  window.ghcModalOut=function(cb){var mob=matchMedia('(max-width:560px)').matches;g.to(m.querySelector('.modal-bg'),{opacity:0,duration:.3});
   g.to(m.querySelector('.modal-box'),mob?{yPercent:100,duration:.35,ease:'power2.in'}:{opacity:0,y:16,duration:.3,ease:'power2.in',onComplete:function(){}}).eventCallback('onComplete',function(){g.set(m.querySelectorAll('.modal-bg,.modal-box'),{clearProps:'all'});cb()})};
- // sticky bar
- var bar=document.querySelector('.sticky-atc');
- if(bar){bar.style.transition='none';var st=function(){var on=bar.classList.contains('show')&&!document.body.classList.contains('noscroll')&&getComputedStyle(bar).display!=='none';
-   g.to(bar,{y:0,yPercent:on?0:110,autoAlpha:on?1:0,duration:on?.6:.4,ease:on?X:'power2.in',overwrite:true})};
-  g.set(bar,{y:0,yPercent:110,autoAlpha:0});st();
-  var mo=new MutationObserver(st);mo.observe(bar,{attributes:true,attributeFilter:['class']});mo.observe(document.body,{attributes:true,attributeFilter:['class']})}
  // hover micro
  if(matchMedia('(hover:hover)').matches)$('button:not(.flip):not(.modal-x),.nav a.cta').forEach(function(b){
   b.addEventListener('mouseenter',function(){g.to(b,{y:-2,duration:.3,ease:E})});
