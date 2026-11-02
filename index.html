@@ -100,7 +100,7 @@ button.atc,.sticky-atc button{background:var(--ink);color:var(--paper);font-fami
 .opt input{position:absolute;opacity:0;width:1px;height:1px}
 .opt span{display:flex;flex-direction:column;gap:4px;border:1px solid var(--line);padding:14px 16px;min-height:44px;transition:border-color .2s}
 .opt b{font-family:var(--serif);font-weight:400;font-size:1.2rem}
-.opt small{color:var(--muted);font-size:.72rem;letter-spacing:.04em}
+.opt small{color:var(--muted);font-size:.72rem;letter-spacing:.04em;white-space:nowrap}
 .opt input:checked+span{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
 .opt input:focus-visible+span{outline:2px solid var(--rust);outline-offset:2px}
 .tin-view{display:none;width:100%;height:100%;position:absolute;inset:0}
@@ -268,8 +268,8 @@ footer .logo{color:var(--paper);font-size:.8rem}
    <fieldset class="opts">
     <legend class="mono">Packaging</legend>
     <div class="row">
-     <label class="opt"><input type="radio" name="pack" value="tin" checked><span><b>Tin</b><small class="mono">30 wipes · one month · $29</small></span></label>
-     <label class="opt"><input type="radio" name="pack" value="pouch"><span><b>Travel pack</b><small class="mono">15 wipes · two weeks · $16</small></span></label>
+     <label class="opt"><input type="radio" name="pack" value="tin" checked><span><b>Tin</b><small class="mono">One-month supply</small></span></label>
+     <label class="opt"><input type="radio" name="pack" value="pouch"><span><b>Travel pack</b><small class="mono">Two-week supply</small></span></label>
     </div>
    </fieldset>
    <p class="lead sm">A cooling wipe for the scalp. Wipes away shine, sweat and leftover sunscreen wherever you are: after the gym, on the commute, before a meeting. <span data-only="tin">A month's worth for the bathroom shelf or gym bag.</span><span data-only="pouch">Slim enough for a pocket or carry-on.</span></p>
