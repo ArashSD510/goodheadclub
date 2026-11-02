@@ -255,6 +255,14 @@ footer .logo{color:var(--paper);font-size:.8rem}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G8ZK5LFBQ7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-G8ZK5LFBQ7');
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -521,7 +529,7 @@ var GHC_URL='https://script.google.com/macros/s/AKfycbxT_SbBfVuhBg3P2Xt1V3DXDeR_
 (function(){var ok=/goodheadclub\.com$/.test(location.hostname)&&!navigator.webdriver&&!/[?&]notrack\b/.test(location.search);
  var vid;try{vid=localStorage.getItem('ghc_vid');if(!vid){vid=Math.random().toString(36).slice(2)+Date.now().toString(36);localStorage.setItem('ghc_vid',vid)}}catch(e){vid='na'}
  function pack(){return document.documentElement.classList.contains('tin')?'tin':'pouch'}
- function send(ev){if(!ok)return;var b=new URLSearchParams({type:'event',event:ev,pack:pack(),sid:vid,device:matchMedia('(max-width:900px)').matches?'mobile':'desktop',ref:document.referrer||'',page:location.href});
+ function send(ev){if(!ok)return;if(ev==='add_to_cart'&&window.gtag){var t=pack()==='tin';gtag('event','add_to_cart',{currency:'USD',value:t?29:16,items:[{item_id:t?'GHC-01-TIN':'GHC-01-POUCH',item_name:'Head Wipes N\u00ba 01, '+(t?'Tin':'Travel pack'),price:t?29:16,quantity:1}]})}var b=new URLSearchParams({type:'event',event:ev,pack:pack(),sid:vid,device:matchMedia('(max-width:900px)').matches?'mobile':'desktop',ref:document.referrer||'',page:location.href});
   try{if(navigator.sendBeacon&&navigator.sendBeacon(GHC_URL,b))return}catch(e){}try{fetch(GHC_URL,{method:'POST',mode:'no-cors',body:b,keepalive:true})}catch(e){}}
  window.ghcTrack=send;
  try{if(!sessionStorage.getItem('ghc_v')){sessionStorage.setItem('ghc_v','1');send('visit')}}catch(e){send('visit')}
@@ -540,7 +548,7 @@ document.querySelectorAll('form.signup').forEach(function(f){
   var r=document.querySelector('input[name="pack"][type="radio"]:checked'),pk=(r&&r.value)||(document.documentElement.classList.contains('tin')?'tin':'pouch');
   var h=f.querySelector('input[name="pack"][type="hidden"]');if(h)h.value=pk;
   var body=new URLSearchParams({email:v,pack:pk,source:f.closest('#soldout')?'soldout-popup':'footer-signup',page:location.href});
-  function ok(){var t=f.parentNode.querySelector('.thanks');f.style.display='none';err.hidden=true;t.style.display='block';t.focus()}
+  function ok(){try{if(window.gtag)gtag('event','generate_lead',{form:f.closest('#soldout')?'popup':'footer',pack:pk})}catch(e){}var t=f.parentNode.querySelector('.thanks');f.style.display='none';err.hidden=true;t.style.display='block';t.focus()}
   function bad(){err.textContent='Something went wrong, try again.';err.hidden=false;btn.disabled=false}
   fetch(GHC_URL,{method:'POST',mode:'no-cors',body:body}).then(ok,bad);
  });
