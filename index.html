@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta name="robots" content="noindex,nofollow">
+<script>/*GATE*/try{if(localStorage.getItem('ghc_pass')!=='1')document.documentElement.setAttribute('data-locked','')}catch(e){document.documentElement.setAttribute('data-locked','')}</script>
+<style>html[data-locked] body>*:not(#gate){display:none!important}#gate{display:none}html[data-locked] #gate{display:flex;position:fixed;inset:0;z-index:9999;background:#f6f3ec;align-items:center;justify-content:center;padding:24px}#gate form{display:flex;flex-direction:column;gap:12px;width:100%;max-width:340px;text-align:center;font-family:"IBM Plex Mono",monospace}#gate .g-logo{font-family:"Archivo",sans-serif;font-weight:800;letter-spacing:.06em;text-transform:uppercase;font-size:1.1rem;margin-bottom:8px;color:#111}#gate input{height:56px;padding:0 16px;border:1px solid #111;background:#fff;font:inherit;font-size:16px;color:#111;text-align:center}#gate button{height:56px}#gate .g-err{min-height:1.2em;font-size:.8rem;color:#8a5a2b}</style>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>if(/iP(hone|od|ad)/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1))document.documentElement.classList.add('ios')</script>
@@ -263,7 +266,7 @@ footer .logo{color:var(--paper);font-size:.8rem}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
-<script>(function(){try{var q=location.search;if(/[?&]internal=1\b/.test(q))localStorage.setItem('ghc_internal','1');if(/[?&]internal=0\b/.test(q))localStorage.removeItem('ghc_internal');window.GHC_INTERNAL=localStorage.getItem('ghc_internal')==='1'}catch(e){window.GHC_INTERNAL=false}if(window.GHC_INTERNAL)window['ga-disable-G-G8ZK5LFBQ7']=true})()</script>
+<script>(function(){try{var q=location.search;if(/[?&]internal=1\b/.test(q))localStorage.setItem('ghc_internal','1');if(/[?&]internal=0\b/.test(q))localStorage.removeItem('ghc_internal');window.GHC_INTERNAL=localStorage.getItem('ghc_internal')==='1'}catch(e){window.GHC_INTERNAL=false}window.GHC_INTERNAL=true;/*LOCKED: tracking paused*/if(window.GHC_INTERNAL)window['ga-disable-G-G8ZK5LFBQ7']=true})()</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G8ZK5LFBQ7"></script>
 <script>
@@ -274,6 +277,9 @@ footer .logo{color:var(--paper);font-size:.8rem}
 </script>
 </head>
 <body>
+<div id="gate"><form onsubmit="ghcGate(this);return false"><div class="g-logo">Good Head Club</div><input type="password" name="p" placeholder="Password" autocomplete="current-password" autofocus aria-label="Password"><button type="submit">Enter</button><div class="g-err" aria-live="polite"></div></form></div>
+<script>async function ghcGate(f){var v=f.p.value.trim().toLowerCase();var h=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(v)))).map(b=>b.toString(16).padStart(2,'0')).join('');if(h==='736bc2d4e0945110e88f7808a4a4d38d3479a0122de1de7ac84c920121928480'){try{localStorage.setItem('ghc_pass','1')}catch(e){}document.documentElement.removeAttribute('data-locked');window.dispatchEvent(new Event('resize'))}else{f.querySelector('.g-err').textContent='Wrong password.';f.p.value=''}return false}</script>
+
 <a class="skip" href="#main">Skip to content</a>
 <div class="bar mono">Free shipping on every order</div>
 <header class="top">
